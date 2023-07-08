@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3238435522328502488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0802, y: 0, z: 0}
+  m_LocalPosition: {x: -0.002, y: 0.0395, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,6 +98,9 @@ GameObject:
   - component: {fileID: 6525537851094515564}
   - component: {fileID: 3816772716428539573}
   - component: {fileID: -200920962519475183}
+  - component: {fileID: -9172611491966872914}
+  - component: {fileID: 4312849627916288405}
+  - component: {fileID: 6215701336387093080}
   m_Layer: 0
   m_Name: TrollSpearman
   m_TagString: Goblin
@@ -113,7 +116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6525537851094515536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -2, z: 0}
+  m_LocalPosition: {x: -5.9992, y: -1.9992, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -147,9 +150,16 @@ MonoBehaviour:
   - {fileID: 720158435, guid: 75522428d7247f14599cd0ae66450783, type: 3}
   - {fileID: 73210208, guid: 75522428d7247f14599cd0ae66450783, type: 3}
   - {fileID: 720505547, guid: 75522428d7247f14599cd0ae66450783, type: 3}
-  _attackingSprites: []
+  _attackingSprites:
+  - {fileID: 653266759, guid: 70c963186fe9ccb4b93120f65f9de6d2, type: 3}
+  - {fileID: -301940752, guid: 70c963186fe9ccb4b93120f65f9de6d2, type: 3}
+  - {fileID: -785978890, guid: 70c963186fe9ccb4b93120f65f9de6d2, type: 3}
+  - {fileID: 978418734, guid: 70c963186fe9ccb4b93120f65f9de6d2, type: 3}
   _idleAnimationFreq: 1
+  _attackAnimationFreq: 0.2
+  _attackHitID: 3
   _walkingAnimationFreq: 0.1
+  attack_cooldown: 1.5
   animationMode: 0
 --- !u!212 &6525537851094515539
 SpriteRenderer:
@@ -192,7 +202,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 720158435, guid: 75522428d7247f14599cd0ae66450783, type: 3}
+  m_Sprite: {fileID: 978418734, guid: 70c963186fe9ccb4b93120f65f9de6d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -229,9 +239,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08216262, y: -0.04411286}
+  m_Offset: {x: -0.003591776, y: -0.038319618}
   serializedVersion: 2
-  m_Radius: 0.08096433
+  m_Radius: 0.067355245
 --- !u!50 &-200920962519475183
 Rigidbody2D:
   serializedVersion: 4
@@ -253,3 +263,57 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-9172611491966872914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525537851094515536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f67805df84534d4aaa81059546682c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetingRange: 0.5
+  _speed: 0.5
+  _attackRange: 0.3
+--- !u!61 &4312849627916288405
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525537851094515536}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.11989319, y: -0.0012016296}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.25, y: 0.35}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.24021363, y: 0.03808856}
+  m_EdgeRadius: 0
+--- !u!114 &6215701336387093080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525537851094515536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86ef4a2599db3b40b829a394a9c03ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Human

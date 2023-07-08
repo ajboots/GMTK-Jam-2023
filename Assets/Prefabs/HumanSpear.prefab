@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3238435522328502488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.159, y: -0.191, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.189, z: 0}
   m_LocalScale: {x: 1.2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98,6 +98,8 @@ GameObject:
   - component: {fileID: 6525537851094515564}
   - component: {fileID: 3816772716428539573}
   - component: {fileID: -200920962519475183}
+  - component: {fileID: 1370329414236882731}
+  - component: {fileID: 4441134429095678505}
   m_Layer: 0
   m_Name: HumanSpear
   m_TagString: Human
@@ -145,8 +147,11 @@ MonoBehaviour:
   _attackingSprites:
   - {fileID: -62662570, guid: e44c8c44d60999741b307ac13457c1e7, type: 3}
   - {fileID: -1791681629, guid: e44c8c44d60999741b307ac13457c1e7, type: 3}
-  _idleAnimationFreq: 2
+  _idleAnimationFreq: 0.2
+  _attackAnimationFreq: 5
+  _attackHitID: 0
   _walkingAnimationFreq: 0.1
+  attack_cooldown: 1.5
   animationMode: 0
 --- !u!212 &6525537851094515539
 SpriteRenderer:
@@ -212,9 +217,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a63fe2b63a74d429278939d9eeb797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetingRange: 2
-  _speed: 2
-  _attackRange: 2
+  _targetingRange: 0
+  _speed: 0.2
+  _attackRange: 0.1
 --- !u!58 &3816772716428539573
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -228,9 +233,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08216262, y: -0.04411286}
+  m_Offset: {x: 0.015358686, y: -0.11065674}
   serializedVersion: 2
-  m_Radius: 0.08096433
+  m_Radius: 0.17160153
 --- !u!50 &-200920962519475183
 Rigidbody2D:
   serializedVersion: 4
@@ -252,3 +257,42 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1370329414236882731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525537851094515536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86ef4a2599db3b40b829a394a9c03ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Goblin
+--- !u!61 &4441134429095678505
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525537851094515536}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.16657972, y: -0.003763914}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.22, y: 0.5022956}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5918131, y: 0.057168007}
+  m_EdgeRadius: 0
