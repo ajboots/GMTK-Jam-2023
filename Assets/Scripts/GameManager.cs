@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -23,9 +24,10 @@ public class GameManager : MonoBehaviour
     private Camera cam;
 
     [SerializeField]
-    private float minCamSize = 10;
+    private float minCamSize = 0.5f;
+
     [SerializeField]
-    private float maxCamSize = 30;
+    private float maxCamSize = 3;
 
     public GameObject player;
 
@@ -42,11 +44,15 @@ public class GameManager : MonoBehaviour
 
     private void doCameraMovement()
     {
-        cam.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, cam.transform.position.z);
+        cam.transform.position = new Vector3(
+            player.transform.position.x,
+            player.transform.position.y,
+            cam.transform.position.z
+        );
 
         if (Input.mouseScrollDelta != Vector2.zero)
         {
-            cam.orthographicSize += -1 * Input.mouseScrollDelta.y;
+            cam.orthographicSize += -.1f * Input.mouseScrollDelta.y;
 
             if (cam.orthographicSize >= maxCamSize)
                 cam.orthographicSize = maxCamSize;

@@ -12,10 +12,14 @@ public class SpriteAnimator : MonoBehaviour
     private Sprite[] _walkingSprites;
 
     [SerializeField]
-    private Sprite[] AttackingSprites;
+    private Sprite[] _attackingSprites;
 
     [SerializeField]
-    private float _animationFreq = 1;
+    private float _idleAnimationFreq = 1;
+
+    [SerializeField]
+    private float _walkingAnimationFreq = 1;
+    private float _randomAniomationOffset = .1f;
     private float _spiteCounter;
     private Vector3 posLastFrame;
     private float _epsilon = .05f;
@@ -35,11 +39,34 @@ public class SpriteAnimator : MonoBehaviour
         _spiteCounter = 0;
     }
 
+    public void StartAttack()
+    {
+        animationMode = AnimationMode.Attacking;
+        _spiteCounter = 0;
+        _spriteIndex = 0;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         float movementThisFrame = (posLastFrame - transform.position).magnitude;
-        if (movementThisFrame < _epsilon * Time.deltaTime)
+        if (animationMode == AnimationMode.Attacking)
+        {
+            _spiteCounter += Time.deltaTime;
+            if (_spiteCounter >= _idleAnimationFreq)
+            {
+                _spiteCounter -= _idleAnimationFreq;
+                _spriteIndex++;
+            }
+            GetComponent<SpriteRenderer>().sprite = _attackingSprites[
+                _spriteIndex % _attackingSprites.Length
+            ];
+            if (_spiteCounter > _attackingSprites.Length + 1)
+            {
+                animationMode = AnimationMode.Idle;
+            }
+        }
+        else if (movementThisFrame < _epsilon * Time.deltaTime)
         {
             if (animationMode != AnimationMode.Idle)
             {
@@ -49,10 +76,11 @@ public class SpriteAnimator : MonoBehaviour
             animationMode = AnimationMode.Idle;
 
             _spiteCounter += Time.deltaTime;
-            if (_spiteCounter >= _animationFreq)
+            if (_spiteCounter >= _idleAnimationFreq + _randomAniomationOffset)
             {
-                _spiteCounter -= _animationFreq;
+                _spiteCounter -= _idleAnimationFreq + _randomAniomationOffset;
                 _spriteIndex++;
+                _randomAniomationOffset = Random.Range(0, _idleAnimationFreq / 5);
             }
             GetComponent<SpriteRenderer>().sprite = _idleSprites[
                 _spriteIndex % _idleSprites.Length
@@ -69,10 +97,11 @@ public class SpriteAnimator : MonoBehaviour
 
             animationMode = AnimationMode.Walking;
             _spiteCounter += movementThisFrame;
-            if (_spiteCounter >= _animationFreq)
+            if (_spiteCounter >= _walkingAnimationFreq + _randomAniomationOffset)
             {
-                _spiteCounter -= _animationFreq;
+                _spiteCounter -= _walkingAnimationFreq + _randomAniomationOffset;
                 _spriteIndex++;
+                _randomAniomationOffset = Random.Range(0, _walkingAnimationFreq / 5);
             }
             GetComponent<SpriteRenderer>().sprite = _walkingSprites[
                 _spriteIndex % _walkingSprites.Length

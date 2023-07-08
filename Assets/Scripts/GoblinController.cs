@@ -9,7 +9,7 @@ public class GoblinController : MonoBehaviour
     private float speed;
     private GameObject king;
     private Vector3 _startingKingOffset;
-    private float _epsilon = .1f;
+    private float _epsilon = .05f;
 
     void Start()
     {
@@ -37,14 +37,15 @@ public class GoblinController : MonoBehaviour
         Vector3 desiredPosition =
             king.transform.position
             - Quaternion.Euler(0, 0, Mathf.Rad2Deg * angleToXaxis) * _startingKingOffset;
-        Debug.DrawLine(transform.position, desiredPosition, Color.black, 0.1f);
         float currentKingOffset = (desiredPosition - transform.position).magnitude;
         if (currentKingOffset > _epsilon)
         {
             Vector3 movementVec =
                 (transform.position - desiredPosition).normalized
                 * speed
-                * Mathf.Min((transform.position - desiredPosition).magnitude, 3);
+                * Mathf.Clamp((transform.position - desiredPosition).magnitude, 0.5f, 1.5f);
+            Debug.DrawRay(transform.position, movementVec, Color.black, 0.1f);
+
             transform.position -= movementVec;
             if (movementVec.magnitude > _epsilon * speed)
             {
