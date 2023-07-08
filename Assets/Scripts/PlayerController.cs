@@ -9,23 +9,34 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D body;
 
     [SerializeField]
-    private float speed = 10;
+    private float speed = 1;
 
     private bool sprinting = false;
 
-    private float horizontal, vertical;
+    private float horizontal,
+        vertical;
 
     public GameObject Target;
 
     public enum Command
     {
-        GroupUp, ActFreely, FocusTarget
+        GroupUp,
+        ActFreely,
+        FocusTarget
     }
-    
+
     // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
+        if (horizontal < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        if (horizontal > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
         vertical = Input.GetAxisRaw("Vertical");
         sprinting = Input.GetKey(KeyCode.LeftShift);
     }
@@ -33,10 +44,17 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // Move Around body
-        body.velocity = new Vector2(horizontal * speed * (sprinting ? 2 : 1), vertical * speed * (sprinting ? 2 : 1));
+        body.velocity = new Vector2(
+            horizontal * speed * (sprinting ? 2 : 1),
+            vertical * speed * (sprinting ? 2 : 1)
+        );
 
         // Move around target
         Target.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Target.transform.position = new Vector3(Target.transform.position.x, Target.transform.position.y, Camera.main.nearClipPlane);
+        Target.transform.position = new Vector3(
+            Target.transform.position.x,
+            Target.transform.position.y,
+            Camera.main.nearClipPlane
+        );
     }
 }
