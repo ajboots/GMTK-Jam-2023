@@ -181,7 +181,8 @@ GameObject:
   - component: {fileID: 5269202220657071914}
   - component: {fileID: 5269202220657071915}
   - component: {fileID: 5269202220657071908}
-  - component: {fileID: 5269202220657071910}
+  - component: {fileID: 2721764710554522436}
+  - component: {fileID: 9146726223868171809}
   m_Layer: 0
   m_Name: Goblin King
   m_TagString: Goblin
@@ -313,12 +314,28 @@ MonoBehaviour:
   _walkingSprites:
   - {fileID: 696272281, guid: 009da9782a70bf44585b2da4f70081e6, type: 3}
   - {fileID: -1226054189, guid: 009da9782a70bf44585b2da4f70081e6, type: 3}
-  AttackingSprites: []
+  _attackingSprites: []
   _idleAnimationFreq: 0.5
+  _attackAnimationFreq: 5
+  _attackHitID: 0
   _walkingAnimationFreq: 0.2
+  attack_cooldown: 1.5
   animationMode: 0
---- !u!58 &5269202220657071910
-CircleCollider2D:
+--- !u!114 &2721764710554522436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5269202220657071919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78d8a9950df5524c814fbb9031f1660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _UnitHP: 100
+--- !u!70 &9146726223868171809
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -330,6 +347,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.034973785, y: -0.01923564}
-  serializedVersion: 2
-  m_Radius: 0.21420941
+  m_Offset: {x: 0.045199946, y: -0.025934324}
+  m_Size: {x: 0.2296001, y: 0.37186864}
+  m_Direction: 0

@@ -100,12 +100,12 @@ public class SpriteAnimator : MonoBehaviour
             {
                 _spiteCounter -= _attackAnimationFreq;
                 _spriteIndex++;
-            }
-            if (_spriteIndex == _attackHitID)
-            {
-                if (GetComponent<Attack>() != null)
+                if (_spriteIndex == _attackHitID)
                 {
-                    GetComponent<Attack>().TriggerAttack();
+                    if (GetComponent<Attack>() != null)
+                    {
+                        GetComponent<Attack>().TriggerAttack();
+                    }
                 }
             }
             else { }
@@ -153,6 +153,10 @@ public class SpriteAnimator : MonoBehaviour
             {
                 _spiteCounter -= _walkingAnimationFreq + _randomAniomationOffset;
                 _spriteIndex++;
+                GameObject
+                    .Find("Particle Manager")
+                    .GetComponent<ParticleManager>()
+                    .playDirt(transform.position + new Vector3(0, -.05f, 0));
                 _randomAniomationOffset = Random.Range(0, _walkingAnimationFreq / 5);
             }
             GetComponent<SpriteRenderer>().sprite = _walkingSprites[
