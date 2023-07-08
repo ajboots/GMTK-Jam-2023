@@ -6,7 +6,14 @@ using UnityEngine.UIElements;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 5;
+    private Rigidbody2D body;
+
+    [SerializeField]
+    private float speed = 10;
+
+    private bool sprinting = false;
+
+    private float horizontal, vertical;
 
     public GameObject Target;
 
@@ -18,29 +25,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        doMovement();
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+        sprinting = Input.GetKey(KeyCode.LeftShift);
     }
 
-    void doMovement()
+    private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.position.Set(transform.position.x, transform.position.y + speed, transform.position.z);
-        }
+        // Move Around body
+        body.velocity = new Vector2(horizontal * speed * (sprinting ? 2 : 1), vertical * speed * (sprinting ? 2 : 1));
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position.Set(transform.position.x - speed, transform.position.y, transform.position.z);
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position.Set(transform.position.x, transform.position.y - speed, transform.position.z);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position.Set(transform.position.x + speed, transform.position.y, transform.position.z);
-        }
+        // Move around target
+        Target.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Target.transform.position = new Vector3(Target.transform.position.x, Target.transform.position.y, Camera.main.nearClipPlane);
     }
 }
