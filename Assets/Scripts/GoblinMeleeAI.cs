@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumanMeleeAI : MonoBehaviour
+public class GoblinMeleeAI : MonoBehaviour
 {
     [SerializeField]
     private float _targetingRange = 2;
@@ -30,16 +30,7 @@ public class HumanMeleeAI : MonoBehaviour
         //if attacking let the coroutine work
         if (_attacking) { }
         //if no target go back to gaurding pos
-        else if (target == null)
-        {
-            Vector3 backToStart =
-                (transform.position - staringPos).normalized * _speed * Time.deltaTime;
-            Debug.DrawRay(transform.position, backToStart * 20f);
-            if ((transform.position - staringPos).magnitude > _epsilon)
-            {
-                transform.position -= backToStart;
-            }
-        }
+        else if (target == null) { }
         //should we move closer?
         else if (
             (target.transform.position - transform.position).magnitude < _targetingRange
@@ -61,28 +52,37 @@ public class HumanMeleeAI : MonoBehaviour
 
     IEnumerator Attack()
     {
+        if ((target.transform.position - transform.position).x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if ((target.transform.position - transform.position).x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
         GetComponent<SpriteAnimator>().StartAttack();
         yield return new WaitForSeconds(1f);
     }
 
     void AITargeting()
     {
-        GameObject[] goblins = GameObject.FindGameObjectsWithTag("Goblin");
-        GameObject closestGoblin = null;
+        GameObject[] humans = GameObject.FindGameObjectsWithTag("Human");
+        GameObject closestHuman = null;
         float closestDistance = _targetingRange;
-        foreach (GameObject g in goblins)
+        foreach (GameObject g in humans)
         {
             float gobDistance = (g.transform.position - transform.position).magnitude;
             if (gobDistance < closestDistance)
             {
-                closestGoblin = g;
+                closestHuman = g;
                 closestDistance = gobDistance;
             }
         }
-        target = closestGoblin;
+        target = closestHuman;
         if (target != null)
         {
-            Debug.DrawLine(target.transform.position, transform.position, Color.blue);
+            Debug.DrawLine(target.transform.position, transform.position, Color.cyan, .5f);
         }
     }
 

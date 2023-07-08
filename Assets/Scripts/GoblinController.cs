@@ -11,6 +11,7 @@ public class GoblinController : MonoBehaviour
     private Vector3 _startingKingOffset;
     private float _epsilon = .05f;
 
+    [SerializeField]
     void Start()
     {
         king = GameObject.Find("Goblin King");
@@ -20,11 +21,10 @@ public class GoblinController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = new Vector3(
-            transform.position.x,
-            transform.position.y,
-            transform.position.y
-        );
+        if (GetComponent<SpriteAnimator>().animationMode == SpriteAnimator.AnimationMode.Attacking)
+        {
+            return;
+        }
         Vector3 mouseToKing =
             Camera.main.ScreenToWorldPoint(Input.mousePosition) - king.transform.position;
 
@@ -47,17 +47,6 @@ public class GoblinController : MonoBehaviour
             Debug.DrawRay(transform.position, movementVec, Color.black, 0.1f);
 
             transform.position -= movementVec;
-            if (movementVec.magnitude > _epsilon * speed)
-            {
-                if (movementVec.x < 0)
-                {
-                    transform.localScale = new Vector3(1, 1, 1);
-                }
-                else if (movementVec.x > 0)
-                {
-                    transform.localScale = new Vector3(-1, 1, 1);
-                }
-            }
         }
     }
 }

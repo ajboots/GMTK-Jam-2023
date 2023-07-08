@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 70c963186fe9ccb4b93120f65f9de6d2
+guid: 8a0808d0f5639fa45ae78580ec6e408e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,7 +141,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Troll Stab_0
+      name: Troll Archer Attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.25, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aab1ab03a0578b48a017bdc5b89e414
+      internalID: -473272200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll Archer Attack_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.25, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ee6c5c0d0c47943ad6883b9923f630
+      internalID: -1824721898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll Archer Attack_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.25, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0872551eed254964ca48ddd0f3565b19
+      internalID: 2065147229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll Archer Attack_3
       rect:
         serializedVersion: 2
         x: 0
@@ -149,20 +212,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.25, y: 0.35}
+      pivot: {x: 0.25, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9728a6ecd70b1824ea66bea20760dce7
-      internalID: 978418734
+      spriteID: 8298d3034b283dd4783ca22ac46cac6e
+      internalID: -1389371837
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Troll Stab_1
+      name: Troll Archer Attack_4
       rect:
         serializedVersion: 2
         x: 32
@@ -170,20 +233,41 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.25, y: 0.35}
+      pivot: {x: 0.25, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40564219efb63014489028ce94011e42
-      internalID: 653266759
+      spriteID: a5e489f5d917d0e4cbcdb03dac22eb67
+      internalID: -163657543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Troll Stab_2
+      name: Troll Archer Attack_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.25, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cfd7b9285a61024c855ee00663646f9
+      internalID: -547764333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Troll Archer Attack_6
       rect:
         serializedVersion: 2
         x: 0
@@ -191,35 +275,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.25, y: 0.35}
+      pivot: {x: 0.25, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9b09281ea57f5a4c8c2eeb6bc57ea88
-      internalID: -301940752
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Troll Stab_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.25, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ba6a4f0c822a2040b6b28be9dd793b9
-      internalID: -785978890
+      spriteID: 2fada66cbe386e44c888fc8ae020344d
+      internalID: -2136864733
       vertices: []
       indices: 
       edges: []
@@ -235,10 +298,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Troll Stab_3: -785978890
-      Troll Stab_2: -301940752
-      Troll Stab_0: 978418734
-      Troll Stab_1: 653266759
+      Troll Archer Attack_1: -1824721898
+      Troll Archer Attack_5: -547764333
+      Troll Archer Attack_4: -163657543
+      Troll Archer Attack_6: -2136864733
+      Troll Archer Attack_0: -473272200
+      Troll Archer Attack_3: -1389371837
+      Troll Archer Attack_2: 2065147229
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

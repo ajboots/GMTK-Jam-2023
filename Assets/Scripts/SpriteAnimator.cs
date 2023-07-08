@@ -18,11 +18,24 @@ public class SpriteAnimator : MonoBehaviour
     private float _idleAnimationFreq = 1;
 
     [SerializeField]
+    private float _attackAnimationFreq = 5;
+
+    [SerializeField]
+    private int _attackHitID = 0;
+
+    [SerializeField]
     private float _walkingAnimationFreq = 1;
     private float _randomAniomationOffset = .1f;
     private float _spiteCounter;
     private Vector3 posLastFrame;
-    private float _epsilon = .05f;
+    private float _epsilon = .1f;
+
+    [SerializeField]
+    private float attack_cooldown = 1.5f;
+
+    private float attack_counter = 0.0f;
+    private float spin_cooldown = 0.5f;
+    private float spin_counter = 0f;
 
     public enum AnimationMode
     {
@@ -41,27 +54,66 @@ public class SpriteAnimator : MonoBehaviour
 
     public void StartAttack()
     {
+        if (attack_counter < attack_cooldown)
+        {
+            return;
+        }
         animationMode = AnimationMode.Attacking;
         _spiteCounter = 0;
         _spriteIndex = 0;
+        attack_counter = 0;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        //to buffer units on z axis
+        transform.position = new Vector3(
+            transform.position.x,
+            transform.position.y,
+            transform.position.y / 1000
+        );
+        attack_counter += Time.deltaTime;
+        spin_counter += Time.deltaTime;
         float movementThisFrame = (posLastFrame - transform.position).magnitude;
+        if (
+            movementThisFrame > _epsilon * Time.deltaTime
+            && animationMode != AnimationMode.Attacking
+            && spin_counter > spin_cooldown
+        )
+        {
+            if ((posLastFrame - transform.position).x < 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                spin_counter = 0;
+            }
+            else if ((posLastFrame - transform.position).x > 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                spin_counter = 0;
+            }
+        }
         if (animationMode == AnimationMode.Attacking)
         {
             _spiteCounter += Time.deltaTime;
-            if (_spiteCounter >= _idleAnimationFreq)
+            if (_spiteCounter >= _attackAnimationFreq)
             {
-                _spiteCounter -= _idleAnimationFreq;
+                _spiteCounter -= _attackAnimationFreq;
                 _spriteIndex++;
+                if (_spriteIndex == _attackHitID)
+                {
+                    if (GetComponent<Attack>() != null)
+                    {
+                        GetComponent<Attack>().TriggerAttack();
+                    }
+                }
             }
+            else { }
             GetComponent<SpriteRenderer>().sprite = _attackingSprites[
                 _spriteIndex % _attackingSprites.Length
             ];
-            if (_spiteCounter > _attackingSprites.Length + 1)
+
+            if (_spriteIndex > _attackingSprites.Length + 1)
             {
                 animationMode = AnimationMode.Idle;
             }
@@ -101,6 +153,10 @@ public class SpriteAnimator : MonoBehaviour
             {
                 _spiteCounter -= _walkingAnimationFreq + _randomAniomationOffset;
                 _spriteIndex++;
+                GameObject
+                    .Find("Particle Manager")
+                    .GetComponent<ParticleManager>()
+                    .playDirt(transform.position + new Vector3(0, -.05f, 0));
                 _randomAniomationOffset = Random.Range(0, _walkingAnimationFreq / 5);
             }
             GetComponent<SpriteRenderer>().sprite = _walkingSprites[
