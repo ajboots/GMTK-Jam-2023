@@ -38,14 +38,18 @@ public class BarrageTower : MonoBehaviour
         if (dist <= range)
         {
             //Spawn Barrage and Arrow Shadows
-            GameObject b = Instantiate(barrage, chosenTarget, Quaternion.identity);
+            GameObject b = Instantiate(
+                barrage,
+                new Vector3(chosenTarget.x, chosenTarget.y, 0),
+                Quaternion.identity
+            );
             //Debug.Log(b.name);
             GameObject s = Instantiate(
                 shadows,
                 new Vector3(
                     this.transform.position.x,
                     this.transform.position.y,
-                    this.transform.position.z + 5
+                    this.transform.position.z
                 ),
                 Quaternion.identity
             );
