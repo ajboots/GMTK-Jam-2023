@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Goblin
-  damagePerAttack: 100
+  damagePerAttack: 20
 --- !u!61 &4441134429095678505
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class UnitHealth : MonoBehaviour
 
     [SerializeField]
     private GameObject _UIHealthBar;
+    public bool dead = false;
 
     public void FixedUpdate()
     {
