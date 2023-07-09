@@ -19,6 +19,7 @@ public class Arrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.audioManager.FXBowFire();
         transform.position += new Vector3(0, .05f, 0);
         GetComponent<Rigidbody2D>().velocity = (gameObject.transform.right * 5f);
         lifetime = .3f + Random.Range(0.2f, 0.4f);
@@ -58,11 +59,22 @@ public class Arrow : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             GetComponent<Rigidbody2D>().isKinematic = true;
             gameObject.transform.parent = other.gameObject.transform;
-            GameObject
-                .Find("Particle Manager")
-                .GetComponent<ParticleManager>()
-                .playBlood(transform.position, transform.rotation, gameObject);
+
             live = false;
+            UnitHealth h = other.gameObject.GetComponent<UnitHealth>();
+            if (h != null)
+            {
+                h.TakeDamage(5);
+                if (!h.isBarricade)
+                {
+                    GameObject
+                        .Find("Particle Manager")
+                        .GetComponent<ParticleManager>()
+                        .playBlood(transform.position, transform.rotation, gameObject);
+                }
+            }
+            gameObject.GetComponent<Arrow>().enabled = false;
+            GameObject.Destroy(gameObject, 2);
         }
     }
 }

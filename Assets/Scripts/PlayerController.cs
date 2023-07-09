@@ -12,42 +12,35 @@ public class PlayerController : MonoBehaviour
     private float speed = 1;
 
     private bool sprinting = false;
-
-    private float horizontal,
-        vertical;
-
+    private float horizontal;
+    private float vertical;
+    public float command;
     public GameObject Target;
-
-    public enum Command
-    {
-        GroupUp,
-        ActFreely,
-        FocusTarget
-    }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButton(0))
+        {
+            command = 2f;
+        }
+        else if (Input.GetMouseButton(1))
+        {
+            command = .5f;
+        }
+        else
+        {
+            command = 1f;
+        }
         horizontal = Input.GetAxisRaw("Horizontal");
-        if (horizontal < 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        if (horizontal > 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
+
         vertical = Input.GetAxisRaw("Vertical");
-        sprinting = Input.GetKey(KeyCode.LeftShift);
     }
 
     private void FixedUpdate()
     {
         // Move Around body
-        body.velocity = new Vector2(
-            horizontal * speed * (sprinting ? 2 : 1),
-            vertical * speed * (sprinting ? 2 : 1)
-        );
+        body.velocity = new Vector2(horizontal * speed, vertical * speed);
 
         // Move around target
         Target.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);

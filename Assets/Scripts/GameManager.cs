@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 //using System.Diagnostics;
 using Unity.VisualScripting;
-using UnityEditor.U2D.Common;
+//using UnityEditor.U2D.Common;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject[] selectedUnits = new GameObject[8];
 
+    [SerializeField]
+    private int whichLevel = 1;
+
     [Header("UI Menus")]
     [SerializeField]
     private GameObject mainMenuCanvas;
@@ -59,14 +62,24 @@ public class GameManager : MonoBehaviour
     private GameObject pausedCanvas;
 
     [SerializeField]
-    private GameObject gameOverCanvas;
+    private GameObject defeatCanvas;
 
     [SerializeField]
     private GameObject victoryCanvas;
 
+    [Header("Audio Manager")]
+    public AudioManager audioManager;
+
     private enum GameState
     {
-        MainMenu, UnitSelect, LevelSelect, Credits, Playing, Paused, GameOver, Victory
+        MainMenu,
+        UnitSelect,
+        LevelSelect,
+        Credits,
+        Playing,
+        Paused,
+        GameOver,
+        Victory
     };
 
     private GameState state;
@@ -94,6 +107,7 @@ public class GameManager : MonoBehaviour
 
         if (scene.name == "MainMenu")
         {
+            audioManager.BGMenuTheme();
             Debug.Log("main menu!");
             state = GameState.MainMenu;
             ToggleUI(mainMenuCanvas);
@@ -101,23 +115,41 @@ public class GameManager : MonoBehaviour
 
         if (scene.name == "LevelSetup")
         {
+            audioManager.BGMenuTheme();
             state = GameState.UnitSelect;
             ToggleUI(unitSelectCanvas);
         }
 
-        if (scene.name == "LevelTestThomas")
-        { 
+        if (
+            scene.name == "LevelTestThomas"
+            || scene.name == "LevelTestThomas 2"
+            || scene.name == "FinalLevel1"
+            || scene.name == "FinalLevel2"
+            || scene.name == "FinalLevel3"
+        )
+        {
+            audioManager.BGMainTheme();
             state = GameState.Playing;
             ToggleUI(playingCanvas);
             cam = Camera.main;
-            player = GameObject.FindGameObjectWithTag("Goblin");
+            player = GameObject.Find("Goblin King");
             spawnUnits();
         }
     }
 
     private void ToggleUI(GameObject canvas)
     {
-        List<GameObject> canvases = new List<GameObject>{mainMenuCanvas, unitSelectCanvas, playingCanvas, pausedCanvas, creditsCanvas, levelSelectCanvas};
+        List<GameObject> canvases = new List<GameObject>
+        {
+            mainMenuCanvas,
+            unitSelectCanvas,
+            playingCanvas,
+            pausedCanvas,
+            creditsCanvas,
+            levelSelectCanvas,
+            defeatCanvas,
+            victoryCanvas
+        };
 
         canvas.SetActive(true);
 
@@ -127,7 +159,8 @@ public class GameManager : MonoBehaviour
             {
                 c.SetActive(true);
                 //Debug.Log(c.name + "active state" + c.activeSelf);
-            } else
+            }
+            else
             {
                 c.SetActive(false);
                 //Debug.Log(c.name + "active state" + c.activeSelf);
@@ -141,7 +174,8 @@ public class GameManager : MonoBehaviour
         {
             state = GameState.MainMenu;
             ToggleUI(mainMenuCanvas);
-        } else if (state == GameState.MainMenu)
+        }
+        else if (state == GameState.MainMenu)
         {
             state = GameState.Credits;
             ToggleUI(creditsCanvas);
@@ -154,7 +188,8 @@ public class GameManager : MonoBehaviour
         {
             state = GameState.MainMenu;
             ToggleUI(mainMenuCanvas);
-        } else if (state == GameState.MainMenu)
+        }
+        else //if (state == GameState.MainMenu)
         {
             state = GameState.LevelSelect;
             ToggleUI(levelSelectCanvas);
@@ -163,14 +198,17 @@ public class GameManager : MonoBehaviour
 
     public void TogglePause()
     {
+        audioManager.ToggleDuck();
+
         if (state == GameState.Paused)
         {
             state = GameState.Playing;
             ToggleUI(playingCanvas);
-        } else
+        }
+        else
         {
             state = GameState.Paused;
-            ToggleUI(pausedCanvas);
+            //ToggleUI(pausedCanvas);
         }
     }
 
@@ -186,11 +224,14 @@ public class GameManager : MonoBehaviour
         GameObject[] unitSlots = GameObject.FindGameObjectsWithTag("UnitSlot");
 
         int i = 0;
-        foreach (GameObject slot in unitSlots) 
+        foreach (GameObject slot in unitSlots)
         {
             if (slot.GetComponent<UnitSlot>().GetUnit() != null)
             {
-                selectedUnits[i] = slot.GetComponent<UnitSlot>().GetUnit().GetComponent<DragDrop>().getPrefab();
+                selectedUnits[i] = slot.GetComponent<UnitSlot>()
+                    .GetUnit()
+                    .GetComponent<DragDrop>()
+                    .getPrefab();
             }
 
             i++;
@@ -199,21 +240,51 @@ public class GameManager : MonoBehaviour
 
     private void spawnUnits()
     {
-        Vector3[] relativePositions = {new Vector3(-1, 1, 0), new Vector3(0, 1, 0), new Vector3(1, 1, 0),
-                                       new Vector3(-1, 0, 0), new Vector3(1, 0, 0),
-                                       new Vector3(-1, -1, 0), new Vector3(0, -1, 0), new Vector3(1, -1, 0)};
+        Vector3[] relativePositions =
+        {
+            new Vector3(-1, 1, 0),
+            new Vector3(0, 1, 0),
+            new Vector3(1, 1, 0),
+            new Vector3(-1, 0, 0),
+            new Vector3(1, 0, 0),
+            new Vector3(-1, -1, 0),
+            new Vector3(0, -1, 0),
+            new Vector3(1, -1, 0)
+        };
 
         int i = 0;
         foreach (GameObject unit in selectedUnits)
         {
             if (unit != null)
-                Instantiate(unit, (relativePositions[i] / 2) + player.transform.position, unit.transform.rotation);
+                Instantiate(
+                    unit,
+                    (relativePositions[i] / 2) + player.transform.position,
+                    unit.transform.rotation
+                );
 
             i++;
         }
     }
 
-    public void loadLevelFromSelect(int levelNumber)
+    public void loadSetup(int level)
+    {
+        whichLevel = level;
+        //SceneManager.LoadScene("FinalLevel1");
+        switch (whichLevel)
+        {
+            case 1:
+                SceneManager.LoadScene("FinalLevel1");
+                break;
+            case 2:
+                SceneManager.LoadScene("FinalLevel2");
+                break;
+            default:
+                SceneManager.LoadScene("FinalLevel3");
+                break;
+        }
+    }
+
+    public void loadLevelFromSelect()
     {
         getSelectedUnits();
 
@@ -222,10 +293,13 @@ public class GameManager : MonoBehaviour
             UnityEngine.Debug.Log(unit?.name);
         }
 
-        switch(levelNumber)
+        switch (whichLevel)
         {
             case 1:
                 SceneManager.LoadScene("LevelTestThomas");
+                break;
+            case 2:
+                SceneManager.LoadScene("LevelTestThomas 2");
                 break;
             default:
                 SceneManager.LoadScene("LevelTestThomas");
@@ -245,9 +319,16 @@ public class GameManager : MonoBehaviour
 
     private void doCameraMovement()
     {
-        cam.transform.position = new Vector3(
+        Vector3 playerPos = new Vector3(
             player.transform.position.x,
             player.transform.position.y,
+            cam.transform.position.z
+        );
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 cameraPos = playerPos - ((playerPos - mousePos) * 0.1f);
+        cam.transform.position = cam.transform.position = new Vector3(
+            cameraPos.x,
+            cameraPos.y,
             cam.transform.position.z
         );
 
@@ -261,5 +342,22 @@ public class GameManager : MonoBehaviour
             if (cam.orthographicSize <= minCamSize)
                 cam.orthographicSize = minCamSize;
         }
+    }
+
+    public void GameOver(bool winningSon) //ie did you win the level
+    {
+        if (winningSon)
+        {
+            //Toggle Victory Screen
+            ToggleUI(victoryCanvas);
+            audioManager.FXVictory();
+        }
+        else
+        {
+            //Toggle Defeat Screen
+            ToggleUI(defeatCanvas);
+            audioManager.FXDefeat();
+        }
+        
     }
 }

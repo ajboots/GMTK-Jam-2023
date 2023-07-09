@@ -29,6 +29,8 @@ public class SpriteAnimator : MonoBehaviour
     private float _spiteCounter;
     private Vector3 posLastFrame;
     private float _epsilon = .1f;
+    private float _idleTimer = .2f;
+    private float _idleCounter = 0;
 
     [SerializeField]
     private float attack_cooldown = 1.5f;
@@ -58,6 +60,10 @@ public class SpriteAnimator : MonoBehaviour
         {
             return;
         }
+        if (animationMode != AnimationMode.Attacking)
+        {
+            GameManager.Instance.audioManager.FXSlash();
+        }
         animationMode = AnimationMode.Attacking;
         _spiteCounter = 0;
         _spriteIndex = 0;
@@ -75,7 +81,16 @@ public class SpriteAnimator : MonoBehaviour
         );
         attack_counter += Time.deltaTime;
         spin_counter += Time.deltaTime;
+
         float movementThisFrame = (posLastFrame - transform.position).magnitude;
+        if (movementThisFrame < _epsilon * Time.deltaTime)
+        {
+            _idleCounter = 0;
+        }
+        else
+        {
+            _idleCounter += Time.deltaTime;
+        }
         if (
             movementThisFrame > _epsilon * Time.deltaTime
             && animationMode != AnimationMode.Attacking
@@ -118,9 +133,9 @@ public class SpriteAnimator : MonoBehaviour
                 animationMode = AnimationMode.Idle;
             }
         }
-        else if (movementThisFrame < _epsilon * Time.deltaTime)
+        else if (_idleCounter < _idleTimer)
         {
-            if (animationMode != AnimationMode.Idle)
+            if (animationMode != AnimationMode.Idle && _spriteIndex > 0)
             {
                 _spriteIndex = Random.Range(0, 10);
                 _spiteCounter = 0;
@@ -147,7 +162,6 @@ public class SpriteAnimator : MonoBehaviour
             }
             animationMode = AnimationMode.Walking;
 
-            animationMode = AnimationMode.Walking;
             _spiteCounter += movementThisFrame;
             if (_spiteCounter >= _walkingAnimationFreq + _randomAniomationOffset)
             {

@@ -27,21 +27,24 @@ public class GoblinMeleeAI : MonoBehaviour
         //if no target go back to gaurding pos
         if (target == null) { }
         //should we move closer?
-        else if (
-            (target.transform.position - transform.position).magnitude < _targetingRange
-            && (target.transform.position - transform.position).magnitude > _attackRange
-        )
+        else if (GameObject.Find("Goblin King").GetComponent<PlayerController>().command != 0.5)
         {
-            Vector3 vecToGob =
-                (transform.position - target.transform.position).normalized
-                * _speed
-                * Time.deltaTime;
-            transform.position -= vecToGob;
-            Debug.DrawRay(transform.position, vecToGob * 20f, Color.red);
-        }
-        else if ((target.transform.position - transform.position).magnitude < _attackRange)
-        {
-            StartCoroutine(Attack());
+            if (
+                (target.transform.position - transform.position).magnitude < _targetingRange
+                && (target.transform.position - transform.position).magnitude > _attackRange
+            )
+            {
+                Vector3 vecToGob =
+                    (transform.position - target.transform.position).normalized
+                    * _speed
+                    * Time.deltaTime;
+                transform.position -= vecToGob;
+                Debug.DrawRay(transform.position, vecToGob * 20f, Color.red);
+            }
+            else if ((target.transform.position - transform.position).magnitude < _attackRange)
+            {
+                StartCoroutine(Attack());
+            }
         }
     }
 
@@ -55,7 +58,6 @@ public class GoblinMeleeAI : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-
         GetComponent<SpriteAnimator>().StartAttack();
         yield return new WaitForSeconds(1f);
     }

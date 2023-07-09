@@ -6,35 +6,85 @@ public class UnitHealth : MonoBehaviour
 {
     [SerializeField]
     private float _UnitHP = 100.0f;
+    private float _MaxHP;
 
     [SerializeField]
     private Sprite _deadSprite;
 
+    [SerializeField]
+    private GameObject _UIHealthBar;
+    public bool dead = false;
+
+    [SerializeField]
+    public bool isBarricade = false;
+    [SerializeField]
+    bool isKing = false;
+
+    public void FixedUpdate()
+    {
+        if (_UIHealthBar != null)
+        {
+            _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, _UnitHP);
+        }
+    }
+
+    public void Start()
+    {
+        _MaxHP = _UnitHP;
+    }
+
     public void TakeDamage(float damage)
     {
         _UnitHP -= damage;
-        if (_UnitHP < 0)
+        _UnitHP = Mathf.Clamp(_UnitHP, -1, _MaxHP);
+        if (_UnitHP <= 0)
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = _deadSprite;
-            GameObject
-                .Find("Particle Manager")
-                .GetComponent<ParticleManager>()
-                .playBlood(transform.position, Quaternion.Euler(0, 0, 90), gameObject);
+            if (_UIHealthBar != null)
+            {
+                _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, 0);
+            }
+            if (isKing)
+            {
+                GameManager.Instance.GameOver(false);
+            }
+            if (isBarricade)
+            {
+                GetComponent<Barricade>().Destruct();
+            }
+            else
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = _deadSprite;
+                GameObject
+                    .Find("Particle Manager")
+                    .GetComponent<ParticleManager>()
+                    .playBlood(transform.position, Quaternion.Euler(0, 0, 90), gameObject);
+            }
             MonoBehaviour[] comps = GetComponents<MonoBehaviour>();
             foreach (MonoBehaviour c in comps)
             {
                 c.enabled = false;
             }
+
+            if (gameObject.CompareTag("Goblin"))
+            {
+                GameManager.Instance.audioManager.FXGoblinDeath();
+            } else if (gameObject.CompareTag("Human"))
+            {
+                GameManager.Instance.audioManager.FXSoldierDeath();
+            }
+
             gameObject.tag = "Dead";
             GetComponent<CapsuleCollider2D>().enabled = false;
-            GetComponent<BoxCollider2D>().enabled = false;
+            if (GetComponent<BoxCollider2D>())
+            {
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
             GetComponent<SpriteRenderer>().enabled = true;
+            if (GetComponent<Rigidbody2D>() != null)
+            {
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            }
         }
     }
-
-    // Start is called before the first frame update
-    void Start() { }
-
-    // Update is called once per frame
-    void Update() { }
 }
