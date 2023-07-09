@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BarrageTower : MonoBehaviour
 {
-    private float _AIinterval = 5f;
+    private float _AIinterval = 8f;
 
     [SerializeField]
     float range = 100f;
