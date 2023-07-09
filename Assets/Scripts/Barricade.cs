@@ -13,7 +13,7 @@ public class Barricade : MonoBehaviour
 
     [SerializeField] BarricadeSize size;
 
-    GameObject healthPickup; //Healing potion prefab to spawn when barricade is destroyed
+    [SerializeField] GameObject healthPickup; //Healing potion prefab to spawn when barricade is destroyed
 
     //Spawning
     [SerializeField] GameObject spawnUnit;
@@ -52,10 +52,11 @@ public class Barricade : MonoBehaviour
         foreach (Transform t in destructSpawns)
         {
             Instantiate(destructFX, t.position, Quaternion.identity);
+            Instantiate(healthPickup, t.position, Quaternion.identity);
         }
 
         Destroy(this.gameObject);
 
-        //Instantiate(healthPickup, transform.position, Quaternion.identity);
+        
     }
 }

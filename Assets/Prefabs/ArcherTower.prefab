@@ -84,7 +84,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 40cdc43f521576e40a9f5e4c19862107, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e37019852e53f3429b0edbc5d603e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 7
+  range: 6
   barrage: {fileID: 1626382515839660704, guid: e38b7fb1e0566b047b0d76020bc23ebd, type: 3}
   shadows: {fileID: 1802315064017012988, guid: 2545a617a4950f6408ed340b78f59329, type: 3}
 --- !u!61 &8749422286532676253
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.35}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,7 +135,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.55, y: 1.2}
+  m_Size: {x: 0.55, y: 0.5}
   m_EdgeRadius: 0
 --- !u!1001 &348463591916478236
 PrefabInstance:
@@ -519,6 +519,10 @@ PrefabInstance:
     - target: {fileID: 6525537851094515536, guid: e0022a9ea437c1e449b0b0e22084fb4f, type: 3}
       propertyPath: m_Name
       value: HumanArcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525537851094515539, guid: e0022a9ea437c1e449b0b0e22084fb4f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6525537851094515565, guid: e0022a9ea437c1e449b0b0e22084fb4f, type: 3}
       propertyPath: m_RootOrder

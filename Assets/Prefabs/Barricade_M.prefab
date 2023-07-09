@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 1
+  healthPickup: {fileID: 6070988483904286326, guid: 4a9ea021c5d657946bc36c3d116e481a, type: 3}
   spawnUnit: {fileID: 6525537851094515536, guid: 6be50d1cbd9168745946183f75ad3416, type: 3}
   spawns:
   - {fileID: 6954716083844543743}
@@ -158,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UnitHP: 50
   _deadSprite: {fileID: 0}
+  _UIHealthBar: {fileID: 0}
   isBarricade: 1
 --- !u!1 &3583228722895118217
 GameObject:
