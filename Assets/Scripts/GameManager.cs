@@ -291,9 +291,16 @@ public class GameManager : MonoBehaviour
 
     private void doCameraMovement()
     {
-        cam.transform.position = new Vector3(
+        Vector3 playerPos = new Vector3(
             player.transform.position.x,
             player.transform.position.y,
+            cam.transform.position.z
+        );
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 cameraPos = playerPos - ((playerPos - mousePos) * 0.1f);
+        cam.transform.position = cam.transform.position = new Vector3(
+            cameraPos.x,
+            cameraPos.y,
             cam.transform.position.z
         );
 
