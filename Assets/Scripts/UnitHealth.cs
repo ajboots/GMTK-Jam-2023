@@ -30,7 +30,8 @@ public class UnitHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _UnitHP -= damage;
-        if (_UnitHP < 0)
+        _UnitHP = Mathf.Clamp(_UnitHP, -1, _MaxHP);
+        if (_UnitHP <= 0)
         {
             if (_UIHealthBar != null)
             {
