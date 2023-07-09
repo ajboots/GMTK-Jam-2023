@@ -119,6 +119,8 @@ public class GameManager : MonoBehaviour
             scene.name == "LevelTestThomas"
             || scene.name == "LevelTestThomas 2"
             || scene.name == "FinalLevel1"
+            || scene.name == "FinalLevel2"
+            || scene.name == "FinalLevel3"
         )
         {
             state = GameState.Playing;
