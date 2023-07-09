@@ -29,7 +29,9 @@ public class Attack : MonoBehaviour
         if (GetComponent<Archer>() != null)
         {
             ShootArrow();
+            return;
         }
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(targetTag);
 
         foreach (GameObject e in enemies)

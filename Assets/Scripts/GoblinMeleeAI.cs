@@ -50,6 +50,14 @@ public class GoblinMeleeAI : MonoBehaviour
 
     IEnumerator Attack()
     {
+        if ((target.transform.position - transform.position).x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if ((target.transform.position - transform.position).x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
         GetComponent<SpriteAnimator>().StartAttack();
         yield return new WaitForSeconds(1f);
     }
