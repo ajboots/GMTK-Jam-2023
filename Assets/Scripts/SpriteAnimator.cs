@@ -113,7 +113,7 @@ public class SpriteAnimator : MonoBehaviour
                 _spriteIndex % _attackingSprites.Length
             ];
 
-            if (_spriteIndex > _attackingSprites.Length + 1)
+            if (_spriteIndex > _attackingSprites.Length)
             {
                 animationMode = AnimationMode.Idle;
             }

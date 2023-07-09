@@ -14,23 +14,18 @@ public class GoblinMeleeAI : MonoBehaviour
     private float _attackRange = 1;
     private float _AIinterval = 1f; // Time to retarget Enemies
     private GameObject target = null;
-    private Vector3 staringPos;
-    private bool _attacking = false;
     private float _epsilon = 0.05f;
 
     void Start()
     {
         // Call the function with a custom interval
         InvokeRepeating("AITargeting", 0f, _AIinterval);
-        staringPos = transform.position;
     }
 
     void FixedUpdate()
     {
-        //if attacking let the coroutine work
-        if (_attacking) { }
         //if no target go back to gaurding pos
-        else if (target == null) { }
+        if (target == null) { }
         //should we move closer?
         else if (
             (target.transform.position - transform.position).magnitude < _targetingRange

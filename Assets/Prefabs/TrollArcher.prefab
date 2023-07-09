@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 6215701336387093080}
   - component: {fileID: 698759553536987482}
   - component: {fileID: 5392179599516459156}
+  - component: {fileID: 9143821999878550840}
   m_Layer: 0
   m_Name: TrollArcher
   m_TagString: Goblin
@@ -242,11 +243,15 @@ MonoBehaviour:
   - {fileID: -163657543, guid: 8a0808d0f5639fa45ae78580ec6e408e, type: 3}
   - {fileID: -547764333, guid: 8a0808d0f5639fa45ae78580ec6e408e, type: 3}
   - {fileID: -2136864733, guid: 8a0808d0f5639fa45ae78580ec6e408e, type: 3}
-  _idleAnimationFreq: 1
-  _attackAnimationFreq: 0.2
-  _attackHitID: -1
+  - {fileID: -900343883, guid: 8a0808d0f5639fa45ae78580ec6e408e, type: 3}
+  - {fileID: -1760345482, guid: 8a0808d0f5639fa45ae78580ec6e408e, type: 3}
+  - {fileID: -1035804382, guid: 8a0808d0f5639fa45ae78580ec6e408e, type: 3}
+  - {fileID: -149737570, guid: 8a0808d0f5639fa45ae78580ec6e408e, type: 3}
+  _idleAnimationFreq: 0.5
+  _attackAnimationFreq: 0.15
+  _attackHitID: 9
   _walkingAnimationFreq: 0.1
-  attack_cooldown: 1.5
+  attack_cooldown: 2.5
   animationMode: 0
 --- !u!212 &6525537851094515539
 SpriteRenderer:
@@ -418,3 +423,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00004914403, y: 0.015980363}
   m_Size: {x: 0.15990168, y: 0.2559607}
   m_Direction: 0
+--- !u!114 &9143821999878550840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525537851094515536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8f472160b5f1c40bb62c802d72a3df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrow: {fileID: 4573403172025954870, guid: 7316ae841a982c64eb3de24c897f6e7f, type: 3}
+  targetTag: Human
+  target: {fileID: 0}
+  _attackRange: 5

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a0808d0f5639fa45ae78580ec6e408e
+guid: cec3259617759b14ab1c14106f581e3a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,133 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Troll Archer Attack_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.25, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6aab1ab03a0578b48a017bdc5b89e414
-      internalID: -473272200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Troll Archer Attack_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.25, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87ee6c5c0d0c47943ad6883b9923f630
-      internalID: -1824721898
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Troll Archer Attack_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.25, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0872551eed254964ca48ddd0f3565b19
-      internalID: 2065147229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Troll Archer Attack_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.25, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8298d3034b283dd4783ca22ac46cac6e
-      internalID: -1389371837
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Troll Archer Attack_4
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.25, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5e489f5d917d0e4cbcdb03dac22eb67
-      internalID: -163657543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Troll Archer Attack_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.25, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cfd7b9285a61024c855ee00663646f9
-      internalID: -547764333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Troll Archer Attack_6
+      name: KnightIdle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -275,20 +149,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.25, y: 0.25}
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fada66cbe386e44c888fc8ae020344d
-      internalID: -2136864733
+      spriteID: 02878683962dda843b6e37cc324b8ae8
+      internalID: 360713581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Troll Archer Attack_7
+      name: KnightIdle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -296,41 +170,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.25, y: 0.25}
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15a03814b99d0914c981aea4f1f38990
-      internalID: -900343883
+      spriteID: 8ef6bb7e380071b4ba4b95d3c4a6120d
+      internalID: 1667977688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Troll Archer Attack_8
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
-      alignment: 9
-      pivot: {x: 0.25, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e279ef3fb4c7494b8e3c51f1423831e
-      internalID: -1760345482
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Troll Archer Attack_9
+      name: KnightIdle_2
       rect:
         serializedVersion: 2
         x: 0
@@ -338,20 +191,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.25, y: 0.25}
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 960fead8eed67b64984e5cfec5e3b582
-      internalID: -1035804382
+      spriteID: 8c715c0d3ea6470469288f44a837d41f
+      internalID: 1422961295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Troll Archer Attack_10
+      name: KnightIdle_3
       rect:
         serializedVersion: 2
         x: 32
@@ -359,14 +212,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 9
-      pivot: {x: 0.25, y: 0.25}
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88c2527a0e1e5524594b9eef7c848513
-      internalID: -149737570
+      spriteID: 829625aae5491504298f53d382db3292
+      internalID: -466761356
       vertices: []
       indices: 
       edges: []
@@ -382,17 +235,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Troll Archer Attack_1: -1824721898
-      Troll Archer Attack_5: -547764333
-      Troll Archer Attack_4: -163657543
-      Troll Archer Attack_8: -1760345482
-      Troll Archer Attack_9: -1035804382
-      Troll Archer Attack_6: -2136864733
-      Troll Archer Attack_7: -900343883
-      Troll Archer Attack_10: -149737570
-      Troll Archer Attack_0: -473272200
-      Troll Archer Attack_3: -1389371837
-      Troll Archer Attack_2: 2065147229
+      KnightIdle_2: 1422961295
+      KnightIdle_0: 360713581
+      KnightIdle_1: 1667977688
+      KnightIdle_3: -466761356
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

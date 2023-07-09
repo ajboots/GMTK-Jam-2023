@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e44c8c44d60999741b307ac13457c1e7
+guid: 302dc422ea5430f4295fe73945c9cbf7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,43 +141,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gaurd Attack_0
+      name: arrow2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.22, y: 0.5}
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 230cd9d04d8d65d4ead6fa00e1cb1237
-      internalID: -62662570
+      spriteID: 1e20dd264e6b0c742b771f4caf9e10e5
+      internalID: 1173752289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gaurd Attack_1
+      name: arrow2_1
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
-      alignment: 9
-      pivot: {x: 0.22, y: 0.5}
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6590e421d1245984c89b7f42c486206c
-      internalID: -1791681629
+      spriteID: 99f01b60e252bd74daa56fe7098e7a2e
+      internalID: -1120728374
       vertices: []
       indices: 
       edges: []
@@ -193,8 +193,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Gaurd Attack_1: -1791681629
-      Gaurd Attack_0: -62662570
+      arrow2_0: 1173752289
+      arrow2_1: -1120728374
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
