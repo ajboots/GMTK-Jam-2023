@@ -15,6 +15,11 @@ public class UnitHealth : MonoBehaviour
     private GameObject _UIHealthBar;
     public bool dead = false;
 
+    [SerializeField]
+    bool isBarricade = false;
+    [SerializeField]
+    bool isKing = false;
+
     public void FixedUpdate()
     {
         if (_UIHealthBar != null)
@@ -28,9 +33,6 @@ public class UnitHealth : MonoBehaviour
         _MaxHP = _UnitHP;
     }
 
-    [SerializeField]
-    public bool isBarricade = false;
-
     public void TakeDamage(float damage)
     {
         _UnitHP -= damage;
@@ -39,7 +41,43 @@ public class UnitHealth : MonoBehaviour
         {
             if (_UIHealthBar != null)
             {
-                _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, 0);
+                if (_UIHealthBar != null)
+                {
+                    _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, 0);
+                }
+                if (isKing)
+                {
+                    GameManager.Instance.GameOver(false);
+                }
+                if (isBarricade)
+                {
+                    GetComponent<Barricade>().Destruct();
+                }
+                else
+                {
+                    gameObject.GetComponent<SpriteRenderer>().sprite = _deadSprite;
+                    GameObject
+                        .Find("Particle Manager")
+                        .GetComponent<ParticleManager>()
+                        .playBlood(transform.position, Quaternion.Euler(0, 0, 90), gameObject);
+                }
+                MonoBehaviour[] comps = GetComponents<MonoBehaviour>();
+                foreach (MonoBehaviour c in comps)
+                {
+                    c.enabled = false;
+                }
+                gameObject.tag = "Dead";
+                GetComponent<CapsuleCollider2D>().enabled = false;
+                if (GetComponent<BoxCollider2D>())
+                {
+                    GetComponent<BoxCollider2D>().enabled = false;
+                }
+                GetComponent<SpriteRenderer>().enabled = true;
+                if (GetComponent<Rigidbody2D>() != null)
+                {
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                }
             }
             if (isBarricade)
             {
