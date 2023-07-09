@@ -36,7 +36,8 @@ public class GoblinController : MonoBehaviour
         );
         Vector3 desiredPosition =
             king.transform.position
-            - Quaternion.Euler(0, 0, Mathf.Rad2Deg * angleToXaxis) * _startingKingOffset;
+            - Quaternion.Euler(0, 0, Mathf.Rad2Deg * angleToXaxis)
+                * (_startingKingOffset * king.GetComponent<PlayerController>().command);
         float currentKingOffset = (desiredPosition - transform.position).magnitude;
         if (currentKingOffset > _epsilon)
         {
