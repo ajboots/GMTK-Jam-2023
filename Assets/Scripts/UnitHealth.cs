@@ -15,6 +15,11 @@ public class UnitHealth : MonoBehaviour
     private GameObject _UIHealthBar;
     public bool dead = false;
 
+    [SerializeField]
+    bool isBarricade = false;
+    [SerializeField]
+    bool isKing = false;
+
     public void FixedUpdate()
     {
         if (_UIHealthBar != null)
@@ -28,9 +33,6 @@ public class UnitHealth : MonoBehaviour
         _MaxHP = _UnitHP;
     }
 
-    [SerializeField]
-    bool isBarricade = false;
-
     public void TakeDamage(float damage)
     {
         _UnitHP -= damage;
@@ -42,6 +44,10 @@ public class UnitHealth : MonoBehaviour
                 if (_UIHealthBar != null)
                 {
                     _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, 0);
+                }
+                if (isKing)
+                {
+                    GameManager.Instance.GameOver(false);
                 }
                 if (isBarricade)
                 {

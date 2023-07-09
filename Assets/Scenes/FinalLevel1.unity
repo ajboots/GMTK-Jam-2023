@@ -4447,7 +4447,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159033824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.493, y: 2.191, z: 0}
+  m_LocalPosition: {x: 2.09, y: 0.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11707,7 +11707,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371806434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4540014, y: -1.1869993, z: 0}
+  m_LocalPosition: {x: 2.27, y: -0.936, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74675,7 +74675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094638296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.949, y: 1.551, z: 0}
+  m_LocalPosition: {x: 1.2, y: 2.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87503,7 +87503,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495289345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.262001, y: -1.3549993, z: 0}
+  m_LocalPosition: {x: 3.185, y: -1.057, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -88847,7 +88847,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538059785}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5630016, y: -1.3759993, z: 0}
+  m_LocalPosition: {x: 0.4, y: -0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -107826,9 +107826,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3357067287694722407, guid: 63544bd7786f66d41b3d3d062a0029d0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4425366
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357067287694722407, guid: 63544bd7786f66d41b3d3d062a0029d0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7030501
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357067287694722407, guid: 63544bd7786f66d41b3d3d062a0029d0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.23756015
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357067287694722407, guid: 63544bd7786f66d41b3d3d062a0029d0, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.005938977
+      objectReference: {fileID: 0}
     - target: {fileID: 3388561716056026197, guid: 63544bd7786f66d41b3d3d062a0029d0, type: 3}
       propertyPath: m_Name
       value: CastleGate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63544bd7786f66d41b3d3d062a0029d0, type: 3}
+--- !u!1 &4020210873656672639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3388561716056026197, guid: 63544bd7786f66d41b3d3d062a0029d0, type: 3}
+  m_PrefabInstance: {fileID: 4020210873656672638}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4020210873656672640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4020210873656672639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbfac1df1fb57a4e80b0c412ef74b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
