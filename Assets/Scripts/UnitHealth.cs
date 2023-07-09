@@ -27,14 +27,11 @@ public class UnitHealth : MonoBehaviour
             }
             gameObject.tag = "Dead";
             GetComponent<CapsuleCollider2D>().enabled = false;
-            GetComponent<BoxCollider2D>().enabled = false;
+            if (GetComponent<BoxCollider2D>())
+            {
+                GetComponent<BoxCollider2D>().enabled = false;
+            }
             GetComponent<SpriteRenderer>().enabled = true;
         }
     }
-
-    // Start is called before the first frame update
-    void Start() { }
-
-    // Update is called once per frame
-    void Update() { }
 }
