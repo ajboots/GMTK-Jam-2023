@@ -32,6 +32,11 @@ public class UnitSlot : MonoBehaviour, IDropHandler, IPointerDownHandler
         }
     }
 
+    public GameObject GetUnit()
+    {
+        return unit;
+    }
+
     public void OnPointerDown(PointerEventData eventData) { }
 
     // Start is called before the first frame update

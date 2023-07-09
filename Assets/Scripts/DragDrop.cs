@@ -12,11 +12,19 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     [SerializeField]
     private Canvas canvas;
 
+    [SerializeField]
+    private GameObject unitPrefab;
+
     public void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         startingPosition = rectTransform.position;
+    }
+
+    public GameObject getPrefab()
+    {
+        return unitPrefab;
     }
 
     public void OnBeginDrag(PointerEventData eventData)

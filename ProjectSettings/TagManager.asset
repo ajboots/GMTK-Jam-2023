@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Goblin
   - Human
+  - DragAndDrop
+  - UnitSlot
+  - miniMapCam
   layers:
   - Default
   - TransparentFX

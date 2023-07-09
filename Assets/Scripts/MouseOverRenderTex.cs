@@ -57,6 +57,7 @@ public class MouseOverRenderTex : MonoBehaviour
 
                 //Debug.Log(viewportClick);
 
+                if (!minimapCam) minimapCam = GameObject.FindGameObjectWithTag("miniMapCam").GetComponent<Camera>();
                 Vector2 worldClick = minimapCam.ViewportToWorldPoint(viewportClick);
 
                 //Debug.Log(worldClick);
