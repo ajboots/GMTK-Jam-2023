@@ -6,20 +6,54 @@ public class UnitHealth : MonoBehaviour
 {
     [SerializeField]
     private float _UnitHP = 100.0f;
+    private float _MaxHP;
 
     [SerializeField]
     private Sprite _deadSprite;
 
+    [SerializeField]
+    private GameObject _UIHealthBar;
+
+    public void FixedUpdate()
+    {
+        if (_UIHealthBar != null)
+        {
+            _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, _UnitHP);
+        }
+    }
+
+    public void Start()
+    {
+        _MaxHP = _UnitHP;
+    }
+
+    [SerializeField]
+    bool isBarricade = false;
+
     public void TakeDamage(float damage)
     {
         _UnitHP -= damage;
+        _UnitHP = Mathf.Clamp(_UnitHP, -1, _MaxHP);
+        if (_UnitHP <= 0)
+
         if (_UnitHP < 0)
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = _deadSprite;
-            GameObject
-                .Find("Particle Manager")
-                .GetComponent<ParticleManager>()
-                .playBlood(transform.position, Quaternion.Euler(0, 0, 90), gameObject);
+            if (_UIHealthBar != null)
+            {
+                _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, 0);
+            }
+            if (isBarricade)
+            {
+                GetComponent<Barricade>().Destruct();
+            }
+            else 
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = _deadSprite;
+                GameObject
+                    .Find("Particle Manager")
+                    .GetComponent<ParticleManager>()
+                    .playBlood(transform.position, Quaternion.Euler(0, 0, 90), gameObject);
+            }
             MonoBehaviour[] comps = GetComponents<MonoBehaviour>();
             foreach (MonoBehaviour c in comps)
             {
