@@ -115,7 +115,11 @@ public class GameManager : MonoBehaviour
             ToggleUI(unitSelectCanvas);
         }
 
-        if (scene.name == "LevelTestThomas" || scene.name == "LevelTestThomas 2")
+        if (
+            scene.name == "LevelTestThomas"
+            || scene.name == "LevelTestThomas 2"
+            || scene.name == "FinalLevel1"
+        )
         {
             state = GameState.Playing;
             ToggleUI(playingCanvas);

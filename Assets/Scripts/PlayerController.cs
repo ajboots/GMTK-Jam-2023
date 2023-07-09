@@ -53,5 +53,14 @@ public class PlayerController : MonoBehaviour
             Target.transform.position.y,
             Camera.main.nearClipPlane
         );
+        CheckDeath();
+    }
+
+    void CheckDeath()
+    {
+        if (tag == "Dead")
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        }
     }
 }
