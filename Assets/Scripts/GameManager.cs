@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
             state = GameState.MainMenu;
             ToggleUI(mainMenuCanvas);
         }
-        else if (state == GameState.MainMenu)
+        else //if (state == GameState.MainMenu)
         {
             state = GameState.LevelSelect;
             ToggleUI(levelSelectCanvas);
