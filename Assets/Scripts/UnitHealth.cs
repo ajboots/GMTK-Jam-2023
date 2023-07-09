@@ -64,6 +64,15 @@ public class UnitHealth : MonoBehaviour
             {
                 c.enabled = false;
             }
+
+            if (gameObject.CompareTag("Goblin"))
+            {
+                GameManager.Instance.audioManager.FXGoblinDeath();
+            } else if (gameObject.CompareTag("Human"))
+            {
+                GameManager.Instance.audioManager.FXSoldierDeath();
+            }
+
             gameObject.tag = "Dead";
             GetComponent<CapsuleCollider2D>().enabled = false;
             if (GetComponent<BoxCollider2D>())

@@ -19,6 +19,7 @@ public class Arrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.audioManager.FXBowFire();
         transform.position += new Vector3(0, .05f, 0);
         GetComponent<Rigidbody2D>().velocity = (gameObject.transform.right * 5f);
         lifetime = .3f + Random.Range(0.2f, 0.4f);

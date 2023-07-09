@@ -67,6 +67,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject victoryCanvas;
 
+    [Header("Audio Manager")]
+    public AudioManager audioManager;
+
     private enum GameState
     {
         MainMenu,
@@ -104,6 +107,7 @@ public class GameManager : MonoBehaviour
 
         if (scene.name == "MainMenu")
         {
+            audioManager.BGMenuTheme();
             Debug.Log("main menu!");
             state = GameState.MainMenu;
             ToggleUI(mainMenuCanvas);
@@ -111,6 +115,7 @@ public class GameManager : MonoBehaviour
 
         if (scene.name == "LevelSetup")
         {
+            audioManager.BGMenuTheme();
             state = GameState.UnitSelect;
             ToggleUI(unitSelectCanvas);
         }
@@ -123,6 +128,7 @@ public class GameManager : MonoBehaviour
             || scene.name == "FinalLevel3"
         )
         {
+            audioManager.BGMainTheme();
             state = GameState.Playing;
             ToggleUI(playingCanvas);
             cam = Camera.main;
@@ -192,6 +198,8 @@ public class GameManager : MonoBehaviour
 
     public void TogglePause()
     {
+        audioManager.ToggleDuck();
+
         if (state == GameState.Paused)
         {
             state = GameState.Playing;
