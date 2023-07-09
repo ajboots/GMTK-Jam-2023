@@ -350,11 +350,13 @@ public class GameManager : MonoBehaviour
         {
             //Toggle Victory Screen
             ToggleUI(victoryCanvas);
+            audioManager.FXVictory();
         }
         else
         {
             //Toggle Defeat Screen
             ToggleUI(defeatCanvas);
+            audioManager.FXDefeat();
         }
         
     }
