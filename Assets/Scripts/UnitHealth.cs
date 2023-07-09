@@ -15,6 +15,11 @@ public class UnitHealth : MonoBehaviour
     private GameObject _UIHealthBar;
     public bool dead = false;
 
+    [SerializeField]
+    public bool isBarricade = false;
+    [SerializeField]
+    bool isKing = false;
+
     public void FixedUpdate()
     {
         if (_UIHealthBar != null)
@@ -28,26 +33,25 @@ public class UnitHealth : MonoBehaviour
         _MaxHP = _UnitHP;
     }
 
-    [SerializeField]
-    bool isBarricade = false;
-
     public void TakeDamage(float damage)
     {
         _UnitHP -= damage;
         _UnitHP = Mathf.Clamp(_UnitHP, -1, _MaxHP);
         if (_UnitHP <= 0)
-
-        if (_UnitHP < 0)
         {
             if (_UIHealthBar != null)
             {
                 _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, 0);
             }
+            if (isKing)
+            {
+                GameManager.Instance.GameOver(false);
+            }
             if (isBarricade)
             {
                 GetComponent<Barricade>().Destruct();
             }
-            else 
+            else
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = _deadSprite;
                 GameObject
@@ -76,6 +80,11 @@ public class UnitHealth : MonoBehaviour
                 GetComponent<BoxCollider2D>().enabled = false;
             }
             GetComponent<SpriteRenderer>().enabled = true;
+            if (GetComponent<Rigidbody2D>() != null)
+            {
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            }
         }
     }
 }

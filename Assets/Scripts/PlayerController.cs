@@ -35,16 +35,12 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
 
         vertical = Input.GetAxisRaw("Vertical");
-        sprinting = Input.GetKey(KeyCode.LeftShift);
     }
 
     private void FixedUpdate()
     {
         // Move Around body
-        body.velocity = new Vector2(
-            horizontal * speed * (sprinting ? 2 : 1),
-            vertical * speed * (sprinting ? 2 : 1)
-        );
+        body.velocity = new Vector2(horizontal * speed, vertical * speed);
 
         // Move around target
         Target.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -53,14 +49,5 @@ public class PlayerController : MonoBehaviour
             Target.transform.position.y,
             Camera.main.nearClipPlane
         );
-        CheckDeath();
-    }
-
-    void CheckDeath()
-    {
-        if (tag == "Dead")
-        {
-            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        }
     }
 }

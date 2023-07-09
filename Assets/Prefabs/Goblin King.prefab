@@ -336,6 +336,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UnitHP: 100
   _deadSprite: {fileID: 21300000, guid: 390471b04747ce34aa3c928ad3af4020, type: 3}
+  _UIHealthBar: {fileID: 0}
+  dead: 0
+  isBarricade: 0
+  isKing: 1
 --- !u!70 &9146726223868171809
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

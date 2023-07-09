@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     private GameObject pausedCanvas;
 
     [SerializeField]
-    private GameObject gameOverCanvas;
+    private GameObject defeatCanvas;
 
     [SerializeField]
     private GameObject victoryCanvas;
@@ -124,6 +124,8 @@ public class GameManager : MonoBehaviour
             scene.name == "LevelTestThomas"
             || scene.name == "LevelTestThomas 2"
             || scene.name == "FinalLevel1"
+            || scene.name == "FinalLevel2"
+            || scene.name == "FinalLevel3"
         )
         {
             audioManager.BGMainTheme();
@@ -144,7 +146,9 @@ public class GameManager : MonoBehaviour
             playingCanvas,
             pausedCanvas,
             creditsCanvas,
-            levelSelectCanvas
+            levelSelectCanvas,
+            defeatCanvas,
+            victoryCanvas
         };
 
         canvas.SetActive(true);
@@ -204,7 +208,7 @@ public class GameManager : MonoBehaviour
         else
         {
             state = GameState.Paused;
-            ToggleUI(pausedCanvas);
+            //ToggleUI(pausedCanvas);
         }
     }
 
@@ -265,7 +269,19 @@ public class GameManager : MonoBehaviour
     public void loadSetup(int level)
     {
         whichLevel = level;
-        SceneManager.LoadScene("LevelSetup");
+        //SceneManager.LoadScene("FinalLevel1");
+        switch (whichLevel)
+        {
+            case 1:
+                SceneManager.LoadScene("FinalLevel1");
+                break;
+            case 2:
+                SceneManager.LoadScene("FinalLevel2");
+                break;
+            default:
+                SceneManager.LoadScene("FinalLevel3");
+                break;
+        }
     }
 
     public void loadLevelFromSelect()
@@ -326,5 +342,20 @@ public class GameManager : MonoBehaviour
             if (cam.orthographicSize <= minCamSize)
                 cam.orthographicSize = minCamSize;
         }
+    }
+
+    public void GameOver(bool winningSon) //ie did you win the level
+    {
+        if (winningSon)
+        {
+            //Toggle Victory Screen
+            ToggleUI(victoryCanvas);
+        }
+        else
+        {
+            //Toggle Defeat Screen
+            ToggleUI(defeatCanvas);
+        }
+        
     }
 }

@@ -8,8 +8,10 @@ public class BarrageTower : MonoBehaviour
 
     [SerializeField]
     float range = 100f;
+
     [SerializeField]
     GameObject barrage;
+
     [SerializeField]
     GameObject shadows;
 
@@ -26,7 +28,7 @@ public class BarrageTower : MonoBehaviour
     {
         //Target Goblins
         GameObject[] goblins = GameObject.FindGameObjectsWithTag("Goblin");
-        Vector3 chosenTarget = goblins[Random.Range(0, goblins.Length)].transform.position;
+        Vector3 chosenTarget = goblins[Random.Range(0, goblins.Length - 1)].transform.position;
 
         //Check if Goblins are in range
         float dist = (chosenTarget - this.transform.position).magnitude;
@@ -35,12 +37,18 @@ public class BarrageTower : MonoBehaviour
 
         if (dist <= range)
         {
-            
-
             //Spawn Barrage and Arrow Shadows
             GameObject b = Instantiate(barrage, chosenTarget, Quaternion.identity);
             //Debug.Log(b.name);
-            GameObject s = Instantiate(shadows, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 5), Quaternion.identity);
+            GameObject s = Instantiate(
+                shadows,
+                new Vector3(
+                    this.transform.position.x,
+                    this.transform.position.y,
+                    this.transform.position.z + 5
+                ),
+                Quaternion.identity
+            );
             s.GetComponent<ArrowShadows>().targetPos = chosenTarget;
 
             BarrageAttack();

@@ -410,6 +410,8 @@ MonoBehaviour:
   _UnitHP: 100
   _deadSprite: {fileID: 21300000, guid: 558a43e9f4b4a9d49ba9025778ff106b, type: 3}
   _UIHealthBar: {fileID: 1524178519420554609}
+  dead: 0
+  isBarricade: 0
 --- !u!70 &5392179599516459156
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -441,7 +443,7 @@ MonoBehaviour:
   arrow: {fileID: 4573403172025954870, guid: 7316ae841a982c64eb3de24c897f6e7f, type: 3}
   targetTag: Human
   target: {fileID: 0}
-  _attackRange: 4
+  _attackRange: 3
 --- !u!1001 &3599987351114695373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -504,6 +506,10 @@ PrefabInstance:
     - target: {fileID: 6128847983090739324, guid: 0854c53c36e494440a0f5f480b3a8267, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745515673900025913, guid: 0854c53c36e494440a0f5f480b3a8267, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.9008
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0854c53c36e494440a0f5f480b3a8267, type: 3}

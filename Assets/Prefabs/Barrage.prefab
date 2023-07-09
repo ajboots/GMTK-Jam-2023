@@ -132,6 +132,7 @@ MonoBehaviour:
   - {fileID: -1216585237, guid: d4d8cf64f2b597144b3105e0e69e61a5, type: 3}
   - {fileID: -139093266, guid: d4d8cf64f2b597144b3105e0e69e61a5, type: 3}
   - {fileID: 0}
+  damage: 20
 --- !u!198 &8506256847245907696
 ParticleSystem:
   m_ObjectHideFlags: 0
