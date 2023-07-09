@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 787ee33bd4aeaf045bf1a448aef338a5
+guid: c28bf1d5468f2ec4fa01b8b0c3a06d9b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,85 +141,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gaurd Walk_0
+      name: KnightAttack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 9
-      pivot: {x: 0.22, y: 0.5}
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39e11f3eeef13a449a4d51b5337670db
-      internalID: 256946255
+      spriteID: a7b7578ffcd51f64bb0d691b313f5de1
+      internalID: -1063449495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gaurd Walk_1
+      name: KnightAttack_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 64
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 9
-      pivot: {x: 0.22, y: 0.5}
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 209d69c5cbd3e8a45a0cbcd249857d71
-      internalID: 1491819611
+      spriteID: 46c80078996a5204885394cc0ccc8d68
+      internalID: -1543405075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gaurd Walk_2
+      name: KnightAttack_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 073fd05097d132e4f9e22ecadd86574f
+      internalID: -1758395393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightAttack_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.3, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc4229e0d4191141a0705e73f8646f7
+      internalID: 1126240824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KnightAttack_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 9
-      pivot: {x: 0.22, y: 0.49999994}
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1253aa702b6db7143af015bcc58e54b7
-      internalID: 298411308
+      spriteID: 53a5b25683e0b754997b0b117d44b836
+      internalID: -2005967957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gaurd Walk_3
+      name: KnightAttack_5
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 9
-      pivot: {x: 0.22, y: 0.5022956}
+      pivot: {x: 0.3, y: 0.3}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77ae1fd0091e0df44b958ec143d74fe1
-      internalID: -515022885
+      spriteID: 7b37b3d769b8e354093ba62f72963201
+      internalID: 1640840498
       vertices: []
       indices: 
       edges: []
@@ -235,10 +277,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Gaurd Walk_2: 298411308
-      Gaurd Walk_1: 1491819611
-      Gaurd Walk_0: 256946255
-      Gaurd Walk_3: -515022885
+      KnightAttack_4: -2005967957
+      KnightAttack_0: -1063449495
+      KnightAttack_1: -1543405075
+      KnightAttack_3: 1126240824
+      KnightAttack_2: -1758395393
+      KnightAttack_5: 1640840498
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

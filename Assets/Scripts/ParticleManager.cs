@@ -20,12 +20,12 @@ public class ParticleManager : MonoBehaviour
         Destroy(p.gameObject, 1.0f);
     }
 
-    public void playBlood(Vector3 pos, Quaternion angle)
+    public void playBlood(Vector3 pos, Quaternion angle, GameObject parent)
     {
         ParticleSystem p = ParticleSystem.Instantiate(blood, pos, angle);
         ParticleSystem pool = ParticleSystem.Instantiate(
             blood_pool,
-            pos - Vector3.down * 0.1f,
+            pos + Vector3.down * 0.1f,
             Quaternion.Euler(-90, 0, 0)
         );
         Destroy(p.gameObject, 2.0f);

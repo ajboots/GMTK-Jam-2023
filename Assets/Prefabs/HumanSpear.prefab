@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3238435522328502488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -0.189, z: 0}
+  m_LocalPosition: {x: 0.001, y: -0.039, z: 0}
   m_LocalScale: {x: 1.2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8c249152603c93244a49dfd229b1be38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ff8f3b6405500c47906cdb1bd3dab33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.5176471}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,19 +137,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _idleSprites:
-  - {fileID: 254618455, guid: cec62fb5d51e63d4da10a0e1a76bc979, type: 3}
-  - {fileID: 1285504194, guid: cec62fb5d51e63d4da10a0e1a76bc979, type: 3}
-  - {fileID: -727959377, guid: cec62fb5d51e63d4da10a0e1a76bc979, type: 3}
+  - {fileID: 360713581, guid: cec3259617759b14ab1c14106f581e3a, type: 3}
+  - {fileID: 1667977688, guid: cec3259617759b14ab1c14106f581e3a, type: 3}
+  - {fileID: 1422961295, guid: cec3259617759b14ab1c14106f581e3a, type: 3}
+  - {fileID: -466761356, guid: cec3259617759b14ab1c14106f581e3a, type: 3}
   _walkingSprites:
-  - {fileID: 256946255, guid: 787ee33bd4aeaf045bf1a448aef338a5, type: 3}
-  - {fileID: 1491819611, guid: 787ee33bd4aeaf045bf1a448aef338a5, type: 3}
-  - {fileID: 298411308, guid: 787ee33bd4aeaf045bf1a448aef338a5, type: 3}
-  - {fileID: -515022885, guid: 787ee33bd4aeaf045bf1a448aef338a5, type: 3}
+  - {fileID: 791178526, guid: 33f5e18002767424c89f5ae17955d367, type: 3}
+  - {fileID: 1556578434, guid: 33f5e18002767424c89f5ae17955d367, type: 3}
   _attackingSprites:
-  - {fileID: -62662570, guid: e44c8c44d60999741b307ac13457c1e7, type: 3}
-  - {fileID: -1791681629, guid: e44c8c44d60999741b307ac13457c1e7, type: 3}
+  - {fileID: -1063449495, guid: c28bf1d5468f2ec4fa01b8b0c3a06d9b, type: 3}
+  - {fileID: -1543405075, guid: c28bf1d5468f2ec4fa01b8b0c3a06d9b, type: 3}
+  - {fileID: -1758395393, guid: c28bf1d5468f2ec4fa01b8b0c3a06d9b, type: 3}
+  - {fileID: 1126240824, guid: c28bf1d5468f2ec4fa01b8b0c3a06d9b, type: 3}
+  - {fileID: -2005967957, guid: c28bf1d5468f2ec4fa01b8b0c3a06d9b, type: 3}
+  - {fileID: 1640840498, guid: c28bf1d5468f2ec4fa01b8b0c3a06d9b, type: 3}
   _idleAnimationFreq: 0.2
-  _attackAnimationFreq: 5
+  _attackAnimationFreq: 0.2
   _attackHitID: 0
   _walkingAnimationFreq: 0.1
   attack_cooldown: 1.5
@@ -195,7 +198,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -515022885, guid: 787ee33bd4aeaf045bf1a448aef338a5, type: 3}
+  m_Sprite: {fileID: 1126240824, guid: c28bf1d5468f2ec4fa01b8b0c3a06d9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -218,9 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a63fe2b63a74d429278939d9eeb797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetingRange: 0
+  _targetingRange: 2
   _speed: 0.2
-  _attackRange: 0.1
+  _attackRange: 0.3
 --- !u!50 &-200920962519475183
 Rigidbody2D:
   serializedVersion: 4
@@ -269,18 +272,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.16657972, y: -0.003763914}
+  m_Offset: {x: 0.13447046, y: 0.013208926}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.22, y: 0.5022956}
-    oldSize: {x: 0.64, y: 0.64}
+    pivot: {x: 0.3, y: 0.3}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5918131, y: 0.057168007}
+  m_Size: {x: 0.091659546, y: 0.2554828}
   m_EdgeRadius: 0
 --- !u!114 &5889506249463969762
 MonoBehaviour:
@@ -294,7 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78d8a9950df5524c814fbb9031f1660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _UnitHP: 100
+  _UnitHP: 10
+  _deadSprite: {fileID: 21300000, guid: e33f0acdc426c524a8fa84f0a7accc6c, type: 3}
 --- !u!70 &2116971412032745735
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -308,6 +312,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0076847076, y: -0.037201583}
-  m_Size: {x: 0.17905235, y: 0.5685352}
+  m_Offset: {x: -0.002141714, y: 0.039622903}
+  m_Size: {x: 0.10222769, y: 0.30768895}
   m_Direction: 0
