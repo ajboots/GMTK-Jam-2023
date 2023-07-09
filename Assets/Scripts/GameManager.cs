@@ -66,7 +66,14 @@ public class GameManager : MonoBehaviour
 
     private enum GameState
     {
-        MainMenu, UnitSelect, LevelSelect, Credits, Playing, Paused, GameOver, Victory
+        MainMenu,
+        UnitSelect,
+        LevelSelect,
+        Credits,
+        Playing,
+        Paused,
+        GameOver,
+        Victory
     };
 
     private GameState state;
@@ -106,18 +113,26 @@ public class GameManager : MonoBehaviour
         }
 
         if (scene.name == "LevelTestThomas")
-        { 
+        {
             state = GameState.Playing;
             ToggleUI(playingCanvas);
             cam = Camera.main;
-            player = GameObject.FindGameObjectWithTag("Goblin");
+            player = GameObject.Find("Goblin King");
             spawnUnits();
         }
     }
 
     private void ToggleUI(GameObject canvas)
     {
-        List<GameObject> canvases = new List<GameObject>{mainMenuCanvas, unitSelectCanvas, playingCanvas, pausedCanvas, creditsCanvas, levelSelectCanvas};
+        List<GameObject> canvases = new List<GameObject>
+        {
+            mainMenuCanvas,
+            unitSelectCanvas,
+            playingCanvas,
+            pausedCanvas,
+            creditsCanvas,
+            levelSelectCanvas
+        };
 
         canvas.SetActive(true);
 
@@ -127,7 +142,8 @@ public class GameManager : MonoBehaviour
             {
                 c.SetActive(true);
                 //Debug.Log(c.name + "active state" + c.activeSelf);
-            } else
+            }
+            else
             {
                 c.SetActive(false);
                 //Debug.Log(c.name + "active state" + c.activeSelf);
@@ -141,7 +157,8 @@ public class GameManager : MonoBehaviour
         {
             state = GameState.MainMenu;
             ToggleUI(mainMenuCanvas);
-        } else if (state == GameState.MainMenu)
+        }
+        else if (state == GameState.MainMenu)
         {
             state = GameState.Credits;
             ToggleUI(creditsCanvas);
@@ -154,7 +171,8 @@ public class GameManager : MonoBehaviour
         {
             state = GameState.MainMenu;
             ToggleUI(mainMenuCanvas);
-        } else if (state == GameState.MainMenu)
+        }
+        else if (state == GameState.MainMenu)
         {
             state = GameState.LevelSelect;
             ToggleUI(levelSelectCanvas);
@@ -167,7 +185,8 @@ public class GameManager : MonoBehaviour
         {
             state = GameState.Playing;
             ToggleUI(playingCanvas);
-        } else
+        }
+        else
         {
             state = GameState.Paused;
             ToggleUI(pausedCanvas);
@@ -186,11 +205,14 @@ public class GameManager : MonoBehaviour
         GameObject[] unitSlots = GameObject.FindGameObjectsWithTag("UnitSlot");
 
         int i = 0;
-        foreach (GameObject slot in unitSlots) 
+        foreach (GameObject slot in unitSlots)
         {
             if (slot.GetComponent<UnitSlot>().GetUnit() != null)
             {
-                selectedUnits[i] = slot.GetComponent<UnitSlot>().GetUnit().GetComponent<DragDrop>().getPrefab();
+                selectedUnits[i] = slot.GetComponent<UnitSlot>()
+                    .GetUnit()
+                    .GetComponent<DragDrop>()
+                    .getPrefab();
             }
 
             i++;
@@ -199,15 +221,27 @@ public class GameManager : MonoBehaviour
 
     private void spawnUnits()
     {
-        Vector3[] relativePositions = {new Vector3(-1, 1, 0), new Vector3(0, 1, 0), new Vector3(1, 1, 0),
-                                       new Vector3(-1, 0, 0), new Vector3(1, 0, 0),
-                                       new Vector3(-1, -1, 0), new Vector3(0, -1, 0), new Vector3(1, -1, 0)};
+        Vector3[] relativePositions =
+        {
+            new Vector3(-1, 1, 0),
+            new Vector3(0, 1, 0),
+            new Vector3(1, 1, 0),
+            new Vector3(-1, 0, 0),
+            new Vector3(1, 0, 0),
+            new Vector3(-1, -1, 0),
+            new Vector3(0, -1, 0),
+            new Vector3(1, -1, 0)
+        };
 
         int i = 0;
         foreach (GameObject unit in selectedUnits)
         {
             if (unit != null)
-                Instantiate(unit, (relativePositions[i] / 2) + player.transform.position, unit.transform.rotation);
+                Instantiate(
+                    unit,
+                    (relativePositions[i] / 2) + player.transform.position,
+                    unit.transform.rotation
+                );
 
             i++;
         }
@@ -222,7 +256,7 @@ public class GameManager : MonoBehaviour
             UnityEngine.Debug.Log(unit?.name);
         }
 
-        switch(levelNumber)
+        switch (levelNumber)
         {
             case 1:
                 SceneManager.LoadScene("LevelTestThomas");
