@@ -6,15 +6,36 @@ public class UnitHealth : MonoBehaviour
 {
     [SerializeField]
     private float _UnitHP = 100.0f;
+    private float _MaxHP;
 
     [SerializeField]
     private Sprite _deadSprite;
+
+    [SerializeField]
+    private GameObject _UIHealthBar;
+
+    public void FixedUpdate()
+    {
+        if (_UIHealthBar != null)
+        {
+            _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, _UnitHP);
+        }
+    }
+
+    public void Start()
+    {
+        _MaxHP = _UnitHP;
+    }
 
     public void TakeDamage(float damage)
     {
         _UnitHP -= damage;
         if (_UnitHP < 0)
         {
+            if (_UIHealthBar != null)
+            {
+                _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, 0);
+            }
             gameObject.GetComponent<SpriteRenderer>().sprite = _deadSprite;
             GameObject
                 .Find("Particle Manager")
