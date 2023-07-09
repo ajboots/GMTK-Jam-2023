@@ -220,7 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 5269202220657071914}
-  speed: 0.4
+  speed: 1
+  command: 0
   Target: {fileID: 5269202220565923390}
 --- !u!50 &5269202220657071914
 Rigidbody2D:
@@ -230,18 +231,18 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5269202220657071919}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &5269202220657071915
 SpriteRenderer:
@@ -284,12 +285,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5aa2f27f31e39704086a3bff2415284a, type: 3}
+  m_Sprite: {fileID: -1688657540, guid: d2eeab36ec742cb4497f712e245bab98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -334,6 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UnitHP: 100
+  _deadSprite: {fileID: 21300000, guid: 390471b04747ce34aa3c928ad3af4020, type: 3}
 --- !u!70 &9146726223868171809
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

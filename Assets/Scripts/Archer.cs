@@ -44,7 +44,10 @@ public class Archer : MonoBehaviour
         //if no target go back to gaurding pos
         if (target == null) { }
         //should we move closer?
-        else if ((target.transform.position - transform.position).magnitude < _attackRange)
+        else if (
+            (target.transform.position - transform.position).magnitude < _attackRange
+            && GameObject.Find("Goblin King").GetComponent<PlayerController>().command != 0.5
+        )
         {
             StartCoroutine(Attack());
         }
