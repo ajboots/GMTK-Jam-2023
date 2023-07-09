@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject[] selectedUnits = new GameObject[8];
 
+    [SerializeField]
+    private int whichLevel = 1;
+
     [Header("UI Menus")]
     [SerializeField]
     private GameObject mainMenuCanvas;
@@ -112,7 +115,7 @@ public class GameManager : MonoBehaviour
             ToggleUI(unitSelectCanvas);
         }
 
-        if (scene.name == "LevelTestThomas")
+        if (scene.name == "LevelTestThomas" || scene.name == "LevelTestThomas 2")
         {
             state = GameState.Playing;
             ToggleUI(playingCanvas);
@@ -247,7 +250,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void loadLevelFromSelect(int levelNumber)
+    public void loadSetup(int level)
+    {
+        whichLevel = level;
+        SceneManager.LoadScene("LevelSetup");
+    }
+
+    public void loadLevelFromSelect()
     {
         getSelectedUnits();
 
@@ -256,10 +265,13 @@ public class GameManager : MonoBehaviour
             UnityEngine.Debug.Log(unit?.name);
         }
 
-        switch (levelNumber)
+        switch (whichLevel)
         {
             case 1:
                 SceneManager.LoadScene("LevelTestThomas");
+                break;
+            case 2:
+                SceneManager.LoadScene("LevelTestThomas 2");
                 break;
             default:
                 SceneManager.LoadScene("LevelTestThomas");

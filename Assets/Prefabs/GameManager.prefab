@@ -2208,6 +2208,7 @@ MonoBehaviour:
   maxCamSize: 2
   player: {fileID: 0}
   selectedUnits: []
+  whichLevel: 1
   mainMenuCanvas: {fileID: 1080728662911529423}
   unitSelectCanvas: {fileID: 7869208274184038295}
   levelSelectCanvas: {fileID: 4424605610644288970}
@@ -4483,7 +4484,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2317281603845505770}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: loadLevelFromSelect
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5180,12 +5181,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2317281603845505770}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: loadSceneByName
-        m_Mode: 5
+        m_MethodName: loadSetup
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: LevelSetup
           m_BoolArgument: 0
@@ -6305,12 +6306,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2317281603845505770}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: loadSceneByName
-        m_Mode: 5
+        m_MethodName: loadSetup
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: LevelSetup
           m_BoolArgument: 0
@@ -6676,7 +6677,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7654795481632807704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2317281603845505770}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: loadSetup
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8253293305742856737
 GameObject:
   m_ObjectHideFlags: 0

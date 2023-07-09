@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: cceec37a37cc46849b0e9c5b88ead39d
+  - enabled: 1
+    path: Assets/Scenes/LevelTestThomas 2.unity
+    guid: 5e1f3b1bba6be1e40b55a4f71064c1ba
   m_configObjects: {}
