@@ -159,7 +159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UnitHP: 50
   _deadSprite: {fileID: 0}
-  _UIHealthBar: {fileID: 0}
+  _UIHealthBar: {fileID: 2653536235359866812, guid: 0854c53c36e494440a0f5f480b3a8267, type: 3}
+  dead: 0
   isBarricade: 1
 --- !u!1 &3583228722895118217
 GameObject:
