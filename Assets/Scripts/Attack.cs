@@ -40,20 +40,22 @@ public class Attack : MonoBehaviour
             {
                 e.GetComponent<UnitHealth>().TakeDamage(damagePerAttack);
 
-                if (e.GetComponent<Barricade>() == null)
+                Vector3 effectLocation = GetComponent<BoxCollider2D>().bounds.max;
+                if (gameObject.transform.localScale.x < 0)
                 {
-
-                    Vector3 effectLocation = GetComponent<BoxCollider2D>().bounds.max;
-                    if (gameObject.transform.localScale.x < 0)
-                    {
-                        effectLocation = GetComponent<BoxCollider2D>().bounds.min;
-                    }
+                    effectLocation = GetComponent<BoxCollider2D>().bounds.min;
+                }
+                if (!e.GetComponent<UnitHealth>().isBarricade)
+                {
                     GameObject
                         .Find("Particle Manager")
                         .GetComponent<ParticleManager>()
                         .playBlood(
                             effectLocation,
-                            Quaternion.LookRotation(transform.position - effectLocation, Vector3.up),
+                            Quaternion.LookRotation(
+                                transform.position - effectLocation,
+                                Vector3.up
+                            ),
                             gameObject
                         );
                 }
