@@ -37,36 +37,41 @@ public class UnitHealth : MonoBehaviour
         _UnitHP = Mathf.Clamp(_UnitHP, -1, _MaxHP);
         if (_UnitHP <= 0)
 
-        if (_UnitHP < 0)
-        {
-            if (_UIHealthBar != null)
+            if (_UnitHP < 0)
             {
-                _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, 0);
+                if (_UIHealthBar != null)
+                {
+                    _UIHealthBar.GetComponent<AnimateHP>().ScaleHP(_MaxHP, 0);
+                }
+                if (isBarricade)
+                {
+                    GetComponent<Barricade>().Destruct();
+                }
+                else
+                {
+                    gameObject.GetComponent<SpriteRenderer>().sprite = _deadSprite;
+                    GameObject
+                        .Find("Particle Manager")
+                        .GetComponent<ParticleManager>()
+                        .playBlood(transform.position, Quaternion.Euler(0, 0, 90), gameObject);
+                }
+                MonoBehaviour[] comps = GetComponents<MonoBehaviour>();
+                foreach (MonoBehaviour c in comps)
+                {
+                    c.enabled = false;
+                }
+                gameObject.tag = "Dead";
+                GetComponent<CapsuleCollider2D>().enabled = false;
+                if (GetComponent<BoxCollider2D>())
+                {
+                    GetComponent<BoxCollider2D>().enabled = false;
+                }
+                GetComponent<SpriteRenderer>().enabled = true;
+                if (GetComponent<Rigidbody2D>() != null)
+                {
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                }
             }
-            if (isBarricade)
-            {
-                GetComponent<Barricade>().Destruct();
-            }
-            else 
-            {
-                gameObject.GetComponent<SpriteRenderer>().sprite = _deadSprite;
-                GameObject
-                    .Find("Particle Manager")
-                    .GetComponent<ParticleManager>()
-                    .playBlood(transform.position, Quaternion.Euler(0, 0, 90), gameObject);
-            }
-            MonoBehaviour[] comps = GetComponents<MonoBehaviour>();
-            foreach (MonoBehaviour c in comps)
-            {
-                c.enabled = false;
-            }
-            gameObject.tag = "Dead";
-            GetComponent<CapsuleCollider2D>().enabled = false;
-            if (GetComponent<BoxCollider2D>())
-            {
-                GetComponent<BoxCollider2D>().enabled = false;
-            }
-            GetComponent<SpriteRenderer>().enabled = true;
-        }
     }
 }

@@ -298,9 +298,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78d8a9950df5524c814fbb9031f1660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _UnitHP: 10
+  _UnitHP: 20
   _deadSprite: {fileID: 21300000, guid: e33f0acdc426c524a8fa84f0a7accc6c, type: 3}
   _UIHealthBar: {fileID: 2425553618309171903}
+  dead: 0
+  isBarricade: 0
 --- !u!70 &2116971412032745735
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

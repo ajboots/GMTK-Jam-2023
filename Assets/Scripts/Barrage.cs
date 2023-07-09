@@ -13,6 +13,9 @@ public class Barrage : MonoBehaviour
     [SerializeField]
     Sprite[] barrageAnimation;
 
+    [SerializeField]
+    float damage = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +58,7 @@ public class Barrage : MonoBehaviour
                             .IsTouching(GetComponent<BoxCollider2D>())
                     )
                     {
-                        e.GetComponent<UnitHealth>().TakeDamage(2000);
+                        e.GetComponent<UnitHealth>().TakeDamage(damage);
 
                         Vector3 effectLocation = e.transform.position;
 
