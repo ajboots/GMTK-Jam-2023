@@ -42,6 +42,7 @@ public class Barrage : MonoBehaviour
             if (index == 17)
             {
                 GetComponent<ParticleSystem>().Play();
+                GameManager.Instance.audioManager.FXBowGroup();
                 animationLength = .1f;
             }
             if (index == 18)

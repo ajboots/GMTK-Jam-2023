@@ -60,6 +60,10 @@ public class SpriteAnimator : MonoBehaviour
         {
             return;
         }
+        if (animationMode != AnimationMode.Attacking)
+        {
+            GameManager.Instance.audioManager.FXSlash();
+        }
         animationMode = AnimationMode.Attacking;
         _spiteCounter = 0;
         _spriteIndex = 0;
