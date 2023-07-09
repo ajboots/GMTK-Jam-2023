@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UnitHP: 100
+  _deadSprite: {fileID: 21300000, guid: 50736c64e9092cf46819e0249d97d74a, type: 3}
 --- !u!70 &9074595460410334277
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -22,7 +22,6 @@ public class Attack : MonoBehaviour
             gameObject.transform.position,
             Quaternion.Euler(0, 0, Mathf.Atan2(arrowPath.y, arrowPath.x) * Mathf.Rad2Deg + 180)
         );
-        Debug.Log("shot arrow");
     }
 
     public void TriggerAttack()
@@ -37,7 +36,6 @@ public class Attack : MonoBehaviour
         {
             if (e.GetComponent<CapsuleCollider2D>().IsTouching(GetComponent<BoxCollider2D>()))
             {
-                Debug.Log("hit");
                 e.GetComponent<UnitHealth>().TakeDamage(damagePerAttack);
 
                 Vector3 effectLocation = GetComponent<BoxCollider2D>().bounds.max;

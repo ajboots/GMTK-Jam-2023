@@ -153,7 +153,7 @@ MonoBehaviour:
   - {fileID: 1640840498, guid: c28bf1d5468f2ec4fa01b8b0c3a06d9b, type: 3}
   _idleAnimationFreq: 0.2
   _attackAnimationFreq: 0.2
-  _attackHitID: 0
+  _attackHitID: 5
   _walkingAnimationFreq: 0.1
   attack_cooldown: 1.5
   animationMode: 0
@@ -236,7 +236,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 10
   m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Goblin
-  damagePerAttack: 10
+  damagePerAttack: 100
 --- !u!61 &4441134429095678505
 BoxCollider2D:
   m_ObjectHideFlags: 0

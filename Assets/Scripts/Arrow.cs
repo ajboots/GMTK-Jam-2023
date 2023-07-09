@@ -63,6 +63,7 @@ public class Arrow : MonoBehaviour
                 .GetComponent<ParticleManager>()
                 .playBlood(transform.position, transform.rotation, gameObject);
             live = false;
+            GameObject.Destroy(gameObject, 2);
         }
     }
 }

@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Human
-  damagePerAttack: 10
+  damagePerAttack: 15
 --- !u!114 &698759553536987482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,6 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UnitHP: 100
+  _deadSprite: {fileID: 21300000, guid: 558a43e9f4b4a9d49ba9025778ff106b, type: 3}
 --- !u!70 &5392179599516459156
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -438,4 +439,4 @@ MonoBehaviour:
   arrow: {fileID: 4573403172025954870, guid: 7316ae841a982c64eb3de24c897f6e7f, type: 3}
   targetTag: Human
   target: {fileID: 0}
-  _attackRange: 5
+  _attackRange: 4
