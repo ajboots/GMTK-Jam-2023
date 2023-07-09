@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Barrage : MonoBehaviour
 {
-    private float _AIinterval = 5f;
+    //private float _AIinterval = 5f;
     private bool waiting = true;
 
     [SerializeField]
@@ -16,7 +16,7 @@ public class Barrage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("AITargeting", 0f, _AIinterval);
+        //InvokeRepeating("AITargeting", 0f, _AIinterval);
         StartCoroutine(Attack());
     }
 

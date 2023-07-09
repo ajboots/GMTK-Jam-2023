@@ -7,7 +7,11 @@ public class BarrageTower : MonoBehaviour
     private float _AIinterval = 5f;
 
     [SerializeField]
+    float range = 100f;
+    [SerializeField]
     GameObject barrage;
+    [SerializeField]
+    GameObject shadows;
 
     // Start is called before the first frame update
     void Start()
@@ -20,15 +24,31 @@ public class BarrageTower : MonoBehaviour
 
     void AITargeting()
     {
+        //Target Goblins
         GameObject[] goblins = GameObject.FindGameObjectsWithTag("Goblin");
-        Vector3 chosenTarget = goblins[Random.Range(0, goblins.Length)]
-            .gameObject
-            .transform
-            .position;
+        Vector3 chosenTarget = goblins[Random.Range(0, goblins.Length)].transform.position;
+
+        //Check if Goblins are in range
+        float dist = (chosenTarget - this.transform.position).magnitude;
+
+        Debug.Log(dist);
+
+        if (dist <= range)
+        {
+            
+
+            //Spawn Barrage and Arrow Shadows
+            GameObject b = Instantiate(barrage, chosenTarget, Quaternion.identity);
+            //Debug.Log(b.name);
+            GameObject s = Instantiate(shadows, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z + 5), Quaternion.identity);
+            s.GetComponent<ArrowShadows>().targetPos = chosenTarget;
+
+            BarrageAttack();
+        }
     }
 
     IEnumerator BarrageAttack()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
     }
 }

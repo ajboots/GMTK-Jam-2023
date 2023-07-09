@@ -95,9 +95,10 @@ GameObject:
   - component: {fileID: 6525537851094515565}
   - component: {fileID: 6525537851094515539}
   - component: {fileID: 9159608680326017473}
+  - component: {fileID: 67064959211130687}
   m_Layer: 0
   m_Name: HumanArcher
-  m_TagString: Goblin
+  m_TagString: Human
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,3 +183,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a67c175798b641642b646dba20060b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &67064959211130687
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525537851094515536}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.08, y: 0.12}
+  m_Direction: 0
